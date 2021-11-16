@@ -5,15 +5,6 @@ function SignUpForm() {
 
     }
 
-    const formValidation = {
-        email: false,
-        password: false,
-        confirmedPassword: false
-    }
-
-    const validateForm = (e) => {
-
-    }
     return (
         <Form
             onSubmit={onSubmit}
