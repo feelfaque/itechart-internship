@@ -19,6 +19,7 @@
 
 .form-subtitle {
     margin-top: 8px;
+    margin-bottom: 40px;
     font-size: 16px;
     font-weight: 600;
     line-height: 22px;
@@ -48,19 +49,20 @@
     flex-direction: column;
 }
 
-.form--column:not(:first-of-type) {
-    margin-top: 32px;
-}
-
-.form--column:first-of-type {
-    margin-top: 40px;
-}
-
 .form--row {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.form-input--margin {
+    margin-top: 32px;
+}
+
+.form-error--text {
+    margin-top: 5px;
+    color: #DC143C;
 }
 
 .form-submit-button {
