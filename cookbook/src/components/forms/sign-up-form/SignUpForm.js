@@ -1,6 +1,6 @@
-import { Form, Field } from "react-final-form";
+import {Form, Field} from "react-final-form";
 
-function SignUpForm () {
+function SignUpForm() {
     const onSubmit = (e) => {
 
     }
@@ -14,28 +14,28 @@ function SignUpForm () {
     const validateForm = (e) => {
 
     }
-    return(
+    return (
         <Form
             onSubmit={onSubmit}
             validate={(values) => {
-            const errors = {};
-            if (!values.email) {
-                errors.email = "Email is required";
-            }
-            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(values.email)) {
-                errors.email = "Email isn't valid";
-            }
-            if (!values.password) {
-                errors.password = "Password is required";
-            }
-            if (!values.confirm) {
-                errors.confirm = "Password confirmation is required";
-            } else if (values.confirm !== values.password) {
-                errors.confirm = "Passwords must match";
-            }
-            return errors;
-        }}
-            render={({ handleSubmit, form, submitting, pristine, values }) => (
+                const errors = {};
+                if (!values.email) {
+                    errors.email = "Email is required";
+                }
+                if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(values.email)) {
+                    errors.email = "Email isn't valid";
+                }
+                if (!values.password) {
+                    errors.password = "Password is required";
+                }
+                if (!values.confirm) {
+                    errors.confirm = "Password confirmation is required";
+                } else if (values.confirm !== values.password) {
+                    errors.confirm = "Passwords must match";
+                }
+                return errors;
+            }}
+            render={({handleSubmit, form, submitting, pristine, values}) => (
                 <form onSubmit={handleSubmit}>
                     <div className="form--column">
                         <label className="form-input--text">Email</label>
@@ -43,7 +43,8 @@ function SignUpForm () {
                             {({input, meta}) => (
                                 <div className="form--column">
                                     <input type="email" {...input} className="form-input"/>
-                                    {meta.error && meta.touched && <span className="form-error--text">{meta.error}</span>}
+                                    {meta.error && meta.touched &&
+                                    <span className="form-error--text">{meta.error}</span>}
                                 </div>
                             )}
                         </Field>
@@ -54,7 +55,8 @@ function SignUpForm () {
                             {({input, meta}) => (
                                 <div className="form--column">
                                     <input type="password" {...input} className="form-input"/>
-                                    {meta.error && meta.touched && <span className="form-error--text">{meta.error}</span>}
+                                    {meta.error && meta.touched &&
+                                    <span className="form-error--text">{meta.error}</span>}
                                 </div>
                             )}
                         </Field>
@@ -65,7 +67,8 @@ function SignUpForm () {
                             {({input, meta}) => (
                                 <div className="form--column">
                                     <input type="password" {...input} className="form-input"/>
-                                    {meta.error && meta.touched && <span className="form-error--text">{meta.error}</span>}
+                                    {meta.error && meta.touched &&
+                                    <span className="form-error--text">{meta.error}</span>}
                                 </div>
                             )}
                         </Field>
@@ -76,27 +79,5 @@ function SignUpForm () {
         />
     );
 }
-
-/*{
-
-    return (
-
-        <form>
-            <label className="form--column form-input--text">
-                Email </label>
-                <input className="form-input" type="email" name="email"/>
-           
-            <label className="form--column form-input--text">
-                <div className="form--row"><span>Password</span> <span className="form-link--yellow">Forgot password?</span></div>
-                <input className="form-input" type="password" name="password"/>
-            </label>
-            <label className="form--column form-input--text">
-                Confirm Password
-                <input className="form-input" type="password" name="password"/>
-            </label>
-            <input className="form-submit-button" type="submit" value="Sign up"/>
-        </form>
-    );
-}*/
 
 export default SignUpForm;
