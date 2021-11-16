@@ -1,0 +1,17 @@
+.signin-page {
+    padding: 32px 0 32px 32px;
+    display: flex;
+    align-items: center;
+    background-color: var(--background-grey);
+}
+
+.signin--background {
+    width: 1004px;
+    height: 93vh;
+    border-radius: 50px 10px;
+    background-image: url("../../../assets/images/sign-in-bg.jpg");
+}
+
+.form-container {
+    transform: translate(185px);
+}

@@ -1,4 +1,4 @@
-function SignUpForm () {
+function SignInForm () {
     return (
         <form action="" method="">
             <label className="form--column form-input--text">
@@ -9,13 +9,9 @@ function SignUpForm () {
                 <div className="form--row"><span>Password</span> <span className="form-link--yellow">Forgot password?</span></div>
                 <input className="form-input" type="password" name="password"/>
             </label>
-            <label className="form--column form-input--text">
-                Confirm Password
-                <input className="form-input" type="password" name="password"/>
-            </label>
             <input className="form-submit-button" type="submit" value="Sign up"/>
         </form>
     );
 }
 
-export default SignUpForm;
+export default SignInForm;

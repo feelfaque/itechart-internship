@@ -9,5 +9,9 @@
     width: 1004px;
     height: 93vh;
     border-radius: 50px 10px;
-    background-image: url("../../assets/images/signup-bg.jpg");
+    background-image: url("../../../assets/images/signup-bg.jpg");
+}
+
+.form-container {
+    transform: translate(-185px);
 }
