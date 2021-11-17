@@ -89,3 +89,7 @@
 
     cursor: pointer;
 }
+
+.form-submit-button:disabled {
+    background-color: #494949;
+}

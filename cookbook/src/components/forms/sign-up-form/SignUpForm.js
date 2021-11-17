@@ -1,9 +1,17 @@
-import {Form, Field} from "react-final-form";
-import { Link } from "react-router-dom";
+import {Form, Field } from "react-final-form";
+import { Link, useNavigate } from "react-router-dom";
+import { useSignup } from "../../../hooks/useSignup";
 
 function SignUpForm() {
-    const onSubmit = (e) => {
+    const {error, signup} = useSignup();
+    const navigate = useNavigate();
 
+    const onSubmit = (values) => {
+        const email = values.email;
+        const password = values.password;
+        console.log(JSON.stringify(values, 0, 2));
+        signup(email, password);
+        navigate("/");
     }
 
     return (
@@ -14,7 +22,7 @@ function SignUpForm() {
                 if (!values.email) {
                     errors.email = "Email is required";
                 }
-                if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(values.email)) {
+                if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(values.email)) {
                     errors.email = "Email isn't valid";
                 }
                 if (!values.password) {
@@ -66,6 +74,7 @@ function SignUpForm() {
                         </Field>
                     </div>
                     <button type="submit" className="form-submit-button" disabled={submitting}>Sign up</button>
+                    {error && <p>error</p>}
                 </form>
             )}
         />
