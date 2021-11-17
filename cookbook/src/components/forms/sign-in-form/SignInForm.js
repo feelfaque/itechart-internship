@@ -1,8 +1,9 @@
 import {Form, Field} from "react-final-form";
 import {Link} from "react-router-dom";
 
-function SignInForm () {
-    const onSubmit = () => {}
+function SignInForm() {
+    const onSubmit = () => {
+    }
     return (
         <Form
             onSubmit={onSubmit}
@@ -26,7 +27,8 @@ function SignInForm () {
                         <Field name="email">
                             {({input, meta}) => (
                                 <div className="form--column">
-                                    <input type="email" {...input} className="form-input"/>
+                                    <input type="email" {...input}
+                                           className="form-input"/>
                                     {meta.error && meta.touched &&
                                     <span className="form-error--text">{meta.error}</span>}
                                 </div>
@@ -34,11 +36,14 @@ function SignInForm () {
                         </Field>
                     </div>
                     <div className="form--column form-input--margin">
-                        <div className="form--row"><label className="form-input--text">Password</label><Link to="/" className="form-link--yellow">Forgot password?</Link></div>
+                        <div className="form--row"><label className="form-input--text">Password</label><Link to="/"
+                                                                                                             className="form-link--yellow">Forgot
+                            password?</Link></div>
                         <Field name="password">
                             {({input, meta}) => (
                                 <div className="form--column">
-                                    <input type="password" {...input} className="form-input"/>
+                                    <input type="password" {...input}
+                                           className="form-input"/>
                                     {meta.error && meta.touched &&
                                     <span className="form-error--text">{meta.error}</span>}
                                 </div>

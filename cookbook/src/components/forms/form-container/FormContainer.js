@@ -4,9 +4,9 @@ import LogoBig from "../../logo/LogoBig";
 import { Link } from "react-router-dom";
 
 
-function FormContainer({title, subtitle, subtitleLink, subtitleLinkText, children}) {
+function FormContainer({className, title, subtitle, subtitleLink, subtitleLinkText, children}) {
     return (
-        <div className="form-container form--font">
+        <div className={className}>
             <LogoBig/>
             <h2 className="form-title">{title}</h2>
             <h3 className="form-subtitle"> {subtitle} <Link to={subtitleLink} className="form-link--yellow">{subtitleLinkText}</Link></h3>

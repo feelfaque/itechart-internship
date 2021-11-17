@@ -7,7 +7,7 @@ import SignInForm from "../../forms/sign-in-form/SignInForm";
 function SignIn() {
     return (
         <div className="signin-page">
-            <FormContainer title={SignInPageData.title} subtitle={SignInPageData.subtitle}
+            <FormContainer className={SignInPageData.className} title={SignInPageData.title} subtitle={SignInPageData.subtitle}
                            subtitleLink={SignInPageData.subtitleLink} subtitleLinkText={SignInPageData.subtitleLinkText} children={<SignInForm/>}/>
             <div className="signin--background"/>
         </div>

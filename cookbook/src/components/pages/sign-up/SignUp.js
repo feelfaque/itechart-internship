@@ -7,7 +7,7 @@ function SignUp() {
     return (
         <div className="signup-page">
             <div className="signup--background"/>
-            <FormContainer title={SignUpFormData.title} subtitle={SignUpFormData.subtitle}
+            <FormContainer className={SignUpFormData.className} title={SignUpFormData.title} subtitle={SignUpFormData.subtitle}
                            subtitleLink={SignUpFormData.subtitleLink} subtitleLinkText={SignUpFormData.subtitleLinkText} children={<SignUpForm/>}/>
         </div>
     );

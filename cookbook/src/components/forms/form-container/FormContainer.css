@@ -66,6 +66,14 @@
     color: #DC143C;
 }
 
+.form--translate-right {
+    transform: translate(185px);
+}
+
+.form--translate-left {
+    transform: translate(-185px);
+}
+
 .form-submit-button {
     width: 488px;
     height: 54px;
