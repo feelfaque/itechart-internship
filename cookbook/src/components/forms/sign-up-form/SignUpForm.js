@@ -1,4 +1,5 @@
 import {Form, Field} from "react-final-form";
+import { Link } from "react-router-dom";
 
 function SignUpForm() {
     const onSubmit = (e) => {
@@ -41,7 +42,7 @@ function SignUpForm() {
                         </Field>
                     </div>
                     <div className="form--column form-input--margin">
-                        <label className="form-input--text">Password</label>
+                        <div className="form--row"><label className="form-input--text">Password</label><Link to="/" className="form-link--yellow">Forgot password?</Link></div>
                         <Field name="password">
                             {({input, meta}) => (
                                 <div className="form--column">

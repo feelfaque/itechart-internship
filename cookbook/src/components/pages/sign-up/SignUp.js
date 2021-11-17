@@ -8,7 +8,7 @@ function SignUp() {
         <div className="signup-page">
             <div className="signup--background"/>
             <FormContainer title={SignUpFormData.title} subtitle={SignUpFormData.subtitle}
-                           subtitleLink={SignUpFormData.subtitleLink} children={<SignUpForm/>}/>
+                           subtitleLink={SignUpFormData.subtitleLink} subtitleLinkText={SignUpFormData.subtitleLinkText} children={<SignUpForm/>}/>
         </div>
     );
 }

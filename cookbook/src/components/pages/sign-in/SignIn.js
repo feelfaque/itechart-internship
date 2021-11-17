@@ -8,7 +8,7 @@ function SignIn() {
     return (
         <div className="signin-page">
             <FormContainer title={SignInPageData.title} subtitle={SignInPageData.subtitle}
-                           subtitleLink={SignInPageData.subtitleLink} children={<SignInForm/>}/>
+                           subtitleLink={SignInPageData.subtitleLink} subtitleLinkText={SignInPageData.subtitleLinkText} children={<SignInForm/>}/>
             <div className="signin--background"/>
         </div>
     );
