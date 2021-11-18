@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/feelfaque.github.io/itechart-internsip/cookbook/static/css/main.45f83e9f.chunk.css",
+    "main.js": "/feelfaque.github.io/itechart-internsip/cookbook/static/js/main.fcb3344d.chunk.js",
+    "main.js.map": "/feelfaque.github.io/itechart-internsip/cookbook/static/js/main.fcb3344d.chunk.js.map",
+    "runtime-main.js": "/feelfaque.github.io/itechart-internsip/cookbook/static/js/runtime-main.13033f24.js",
+    "runtime-main.js.map": "/feelfaque.github.io/itechart-internsip/cookbook/static/js/runtime-main.13033f24.js.map",
+    "static/css/2.679831fc.chunk.css": "/feelfaque.github.io/itechart-internsip/cookbook/static/css/2.679831fc.chunk.css",
+    "static/js/2.193709ed.chunk.js": "/feelfaque.github.io/itechart-internsip/cookbook/static/js/2.193709ed.chunk.js",
+    "static/js/2.193709ed.chunk.js.map": "/feelfaque.github.io/itechart-internsip/cookbook/static/js/2.193709ed.chunk.js.map",
+    "index.html": "/feelfaque.github.io/itechart-internsip/cookbook/index.html",
+    "static/css/2.679831fc.chunk.css.map": "/feelfaque.github.io/itechart-internsip/cookbook/static/css/2.679831fc.chunk.css.map",
+    "static/css/main.45f83e9f.chunk.css.map": "/feelfaque.github.io/itechart-internsip/cookbook/static/css/main.45f83e9f.chunk.css.map",
+    "static/js/2.193709ed.chunk.js.LICENSE.txt": "/feelfaque.github.io/itechart-internsip/cookbook/static/js/2.193709ed.chunk.js.LICENSE.txt",
+    "static/media/SignIn.css": "/feelfaque.github.io/itechart-internsip/cookbook/static/media/sign-in-bg.8da7ab2c.jpg",
+    "static/media/SignUp.css": "/feelfaque.github.io/itechart-internsip/cookbook/static/media/signup-bg.cda552bb.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.13033f24.js",
+    "static/css/2.679831fc.chunk.css",
+    "static/js/2.193709ed.chunk.js",
+    "static/css/main.45f83e9f.chunk.css",
+    "static/js/main.fcb3344d.chunk.js"
+  ]
+}
