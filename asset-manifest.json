@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/feelfaque.github.io/itechart-internship/static/css/main.613f0432.chunk.css",
-    "main.js": "/feelfaque.github.io/itechart-internship/static/js/main.fcb3344d.chunk.js",
-    "main.js.map": "/feelfaque.github.io/itechart-internship/static/js/main.fcb3344d.chunk.js.map",
+    "main.js": "/feelfaque.github.io/itechart-internship/static/js/main.2d81b8ee.chunk.js",
+    "main.js.map": "/feelfaque.github.io/itechart-internship/static/js/main.2d81b8ee.chunk.js.map",
     "runtime-main.js": "/feelfaque.github.io/itechart-internship/static/js/runtime-main.69db0d3a.js",
     "runtime-main.js.map": "/feelfaque.github.io/itechart-internship/static/js/runtime-main.69db0d3a.js.map",
     "static/css/2.679831fc.chunk.css": "/feelfaque.github.io/itechart-internship/static/css/2.679831fc.chunk.css",
-    "static/js/2.f0d103a8.chunk.js": "/feelfaque.github.io/itechart-internship/static/js/2.f0d103a8.chunk.js",
-    "static/js/2.f0d103a8.chunk.js.map": "/feelfaque.github.io/itechart-internship/static/js/2.f0d103a8.chunk.js.map",
+    "static/js/2.ef8843a6.chunk.js": "/feelfaque.github.io/itechart-internship/static/js/2.ef8843a6.chunk.js",
+    "static/js/2.ef8843a6.chunk.js.map": "/feelfaque.github.io/itechart-internship/static/js/2.ef8843a6.chunk.js.map",
     "index.html": "/feelfaque.github.io/itechart-internship/index.html",
     "static/css/2.679831fc.chunk.css.map": "/feelfaque.github.io/itechart-internship/static/css/2.679831fc.chunk.css.map",
     "static/css/main.613f0432.chunk.css.map": "/feelfaque.github.io/itechart-internship/static/css/main.613f0432.chunk.css.map",
-    "static/js/2.f0d103a8.chunk.js.LICENSE.txt": "/feelfaque.github.io/itechart-internship/static/js/2.f0d103a8.chunk.js.LICENSE.txt",
+    "static/js/2.ef8843a6.chunk.js.LICENSE.txt": "/feelfaque.github.io/itechart-internship/static/js/2.ef8843a6.chunk.js.LICENSE.txt",
     "static/media/SignIn.css": "/feelfaque.github.io/itechart-internship/static/media/sign-in-bg.8da7ab2c.jpg",
     "static/media/SignUp.css": "/feelfaque.github.io/itechart-internship/static/media/signup-bg.cda552bb.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.69db0d3a.js",
     "static/css/2.679831fc.chunk.css",
-    "static/js/2.f0d103a8.chunk.js",
+    "static/js/2.ef8843a6.chunk.js",
     "static/css/main.613f0432.chunk.css",
-    "static/js/main.fcb3344d.chunk.js"
+    "static/js/main.2d81b8ee.chunk.js"
   ]
 }
