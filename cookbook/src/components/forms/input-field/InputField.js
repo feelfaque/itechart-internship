@@ -1,6 +1,6 @@
 import {Field} from "react-final-form";
 
-const InputField = ({name, type}) => {
+const InputField = ({name, type }) => {
     return (
         <Field name={name}>
             {({input, meta}) => (

@@ -1,17 +1,17 @@
 import {Form } from "react-final-form";
-import { Link, useNavigate } from "react-router-dom";
-import { useSignup } from "../../../hooks/useSignup";
-import { validate } from "./config";
+import {Link, useNavigate} from "react-router-dom";
+import { validate} from "./config";
 import InputField from "../input-field/InputField";
+import {useDispatch} from "react-redux";
+import {registerStart} from "../../../redux/actions/auth/authActions";
 
 function SignUpForm() {
-    const {signup, error} = useSignup();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const onSubmit = (values) => {
-        const email = values.email;
-        const password = values.password;
-        signup(email, password);
-        navigate("/");
+        dispatch(registerStart(values));
+        navigate('/');
     }
     return (
         <Form
@@ -32,7 +32,6 @@ function SignUpForm() {
                         <InputField name="confirm" type="password" />
                     </div>
                     <button type="submit" className="form-submit-button" disabled={submitting}>Sign up</button>
-                    {error && <p>error</p>}
                 </form>
             )}
         />
