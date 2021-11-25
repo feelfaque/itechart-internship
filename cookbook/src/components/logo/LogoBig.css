@@ -1,0 +1,24 @@
+.logo {
+    width: 137px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-image {
+    width: 21px;
+}
+
+.logo-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 29px;
+}
+
+.logo-text--yellow {
+    color: var(--primary-yellow);
+}
+
+.logo-text--black {
+    color: var(--text-black);
+}
