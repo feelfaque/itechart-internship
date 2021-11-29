@@ -17,6 +17,10 @@
     color: var(--text-black);
 }
 
+.nav-link.nav-link--white {
+    color: var(--background-grey);
+}
+
 .nav-link:hover {
     color: var(--primary-yellow);
     text-decoration: underline;

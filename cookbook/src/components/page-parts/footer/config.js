@@ -1,12 +1,12 @@
-export const LogoInfo = {
+export const footerLogoInfo = {
     logoClassName: "logo small",
     logoImageClassName: "logo-image small",
     logoFontClassName: "logo-title small",
-    logoTextColor: "logo-text--black"
+    logoTextColor: "logo-text--white"
 }
 
 export const NavInfo = {
-    navClassName: "nav header",
+    navClassName: "nav footer",
     navLinks: [
         {
             text: "Recipes",
@@ -16,6 +16,10 @@ export const NavInfo = {
             text: "Cookbooks",
             link: "/cookbooks"
         },
+        {
+            text: "About Us",
+            link: "/about"
+        }
     ],
-    linkClassName: "nav-link nav-link--black"
+    linkClassName: "nav-link nav-link--white"
 }

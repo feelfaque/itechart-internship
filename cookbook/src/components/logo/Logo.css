@@ -41,3 +41,7 @@
 .logo-text--black {
     color: var(--text-black);
 }
+
+.logo-text--white {
+    color: var(--background-grey);
+}

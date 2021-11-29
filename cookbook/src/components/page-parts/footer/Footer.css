@@ -1,0 +1,26 @@
+.footer {
+    height: 97px;
+    background-color: var(--text-black);
+}
+.footer--row {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mail-link {
+    color: var(--primary-yellow);
+    line-height: 18px;
+}
+
+.project-info {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.project-info--text {
+    margin-right: 16px;
+    color: #DADADA;
+}
