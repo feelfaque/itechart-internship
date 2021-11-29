@@ -16,6 +16,8 @@ export default function App() {
                     <Route exact path="/" element={<Home />}/>
                     <Route path="/signup" element={<SignUp />}/>
                     <Route path="/login" element={<SignIn />}/>
+                    <Route path="/recipes" />
+                    <Route path="/cookbooks" />
                 </Routes>
     </div>
   );

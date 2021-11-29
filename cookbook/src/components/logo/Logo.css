@@ -22,6 +22,10 @@
     width: 17px;
 }
 
+.logo-title {
+    font-family: 'Nunito', sans-serif;
+}
+
 .logo-title.big {
     font-size: 29px;
 }

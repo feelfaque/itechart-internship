@@ -1,8 +1,12 @@
 import {Link} from 'react-router-dom'
+import Header from "../../page-parts/header/Header";
 
 function Home () {
     return(
-        <Link to="/signup">Sign up</Link>
+        <>
+            <Header />
+            <Link to="/signup">Sign up</Link>
+        </>
     );
 }
 
