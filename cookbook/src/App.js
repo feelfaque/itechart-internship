@@ -8,6 +8,7 @@ import './App.css';
 import Home from "./components/pages/home/Home";
 import SignUp from "./components/pages/sign-up/SignUp";
 import SignIn from "./components/pages/sign-in/SignIn";
+import Profile from "./components/pages/profile/Profile";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
                     <Route path="/login" element={<SignIn />}/>
                     <Route path="/recipes" />
                     <Route path="/cookbooks" />
+                    <Route path="/profile" element={<Profile />} />
                 </Routes>
     </div>
   );
