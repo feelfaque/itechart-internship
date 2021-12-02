@@ -37,3 +37,7 @@
     border-radius: 10px;
     background-color: var(--primary-yellow);
 }
+
+.profile-nav-button--yellow:hover {
+    color: #FFFFFF;
+}

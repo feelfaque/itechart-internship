@@ -1,0 +1,67 @@
+.cookbook-tab {
+    width: 288px;
+    height: 487px;
+    padding: 24px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);
+    color: var(--text-black);
+}
+
+.cookbook-tab--margin {
+    margin-bottom: 16px;
+}
+
+.cookbook-tab-stats {
+    display: flex;
+    align-items: center;
+}
+
+
+.icon--grey {
+    margin-right: 8px;
+    color: var(--icon-grey);
+}
+
+.tab-text {
+    font-size: 14px;
+    line-height: 19px;
+    color: var(--text-black);
+}
+
+.cookbook-tab-photo {
+    width: 240px;
+    height: 240px;
+    border-radius: 50px 10px;
+}
+
+
+.cookbook-tab-stats-list {
+    display: flex;
+    align-items: center;
+}
+
+.cookbook-tab-stats-list .cookbook-tab-stats:not(:last-of-type) {
+    margin-right: 24px;
+}
+
+.cookbook-tab-title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.cookbook-tab-name {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+
