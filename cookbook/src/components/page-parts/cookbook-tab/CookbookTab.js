@@ -15,7 +15,7 @@ const CookbookTab = () => {
     return (
         <div className="cookbook-tab">
             <div className="cookbook-tab-stats">
-                <AiTwotoneEye className="icon--grey"/><p className="tab-text">{cookbook.views} views</p>
+                <AiTwotoneEye className="icon"/><p className="tab-text">{cookbook.views} views</p>
             </div>
             <img src={fruit} alt="cookbook cover" className="cookbook-tab-photo"/>
             <div className="cookbook-tab-title">
@@ -25,11 +25,11 @@ const CookbookTab = () => {
             <p className="tab-text cookbook-tab--margin">{cookbook.description}</p>
             <div className="cookbook-tab-stats-list">
                 <div className="cookbook-tab-stats">
-                    <AiFillHeart className="icon--grey" />
+                    <AiFillHeart className="icon" />
                     <p className="tab-text">{cookbook.likes} likes</p>
                 </div>
                 <div className="cookbook-tab-stats">
-                    <MdModeComment className="icon--grey" />
+                    <MdModeComment className="icon" />
                     <p className="tab-text">{cookbook.comments} comments</p>
                 </div>
             </div>

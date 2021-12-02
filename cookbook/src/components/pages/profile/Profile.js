@@ -3,7 +3,7 @@ import Header from "../../page-parts/header/Header";
 import Footer from "../../page-parts/footer/Footer";
 import ProfileInfo from "./profile-info/ProfileInfo";
 import ProfileNav from "./profile-nav/ProfileNav";
-import CookbookTabsList from "../../page-parts/cookbook-tabs-list/CookbookTabsList";
+import RecipeTabsList from "../../page-parts/recipe-tabs-list/RecipeTabsList";
 
 const Profile = () => {
     return(
@@ -12,7 +12,7 @@ const Profile = () => {
             <div className="profile">
                 <ProfileInfo />
                 <ProfileNav />
-                <CookbookTabsList />
+                <RecipeTabsList />
             </div>
             <Footer />
         </>
