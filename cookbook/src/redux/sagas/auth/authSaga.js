@@ -21,7 +21,8 @@ const register = async (email, password) => {
 
 export function* logInWithCredentials({ payload: { email, password } }) {
     try {
-        const user = yield logIn(email, password);
+        yield logIn(email, password);
+        const user = {email, password};
         yield put(logInSuccess(user));
     } catch (error) {
         yield put(logInFailure(error));
