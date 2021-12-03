@@ -1,13 +1,12 @@
-import {Link} from 'react-router-dom'
-import Header from "../../page-parts/header/Header";
-import Footer from "../../page-parts/footer/Footer";
+import {Link} from 'react-router-dom';
+import Layout from "../../page-parts/layout/Layout";
 
 function Home () {
     return(
         <>
-            <Header />
-            <Link to="/signup">Sign up</Link>
-            <Footer />
+            <Layout>
+                <Link to="/signup">Sign up</Link>
+            </Layout>
         </>
     );
 }

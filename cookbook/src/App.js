@@ -14,9 +14,9 @@ export default function App() {
   return (
     <div className="App">
                 <Routes>
-                    <Route exact path="/" element={<Home />}/>
                     <Route path="/signup" element={<SignUp />}/>
                     <Route path="/login" element={<SignIn />}/>
+                    <Route exact path="/" element={<Home />}/>
                     <Route path="/recipes" />
                     <Route path="/cookbooks" />
                     <Route path="/profile" element={<Profile />} />
