@@ -2,7 +2,7 @@ import types from "../actions/auth/authActionTypes";
 
 const INITIAL_STATE = {
     currentUser: null,
-    error: null,
+    error: null
 };
 
 const authReducer = (state = INITIAL_STATE, action) => {

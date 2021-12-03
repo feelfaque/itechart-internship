@@ -1,11 +1,15 @@
+
 export const profileLinks = [
     {
-        text: "My Cookbooks"
+        text: "My Cookbooks",
+        dispatch: openCookbooks
     },
     {
-        text: "My Recipes"
+        text: "My Recipes",
+        dispatch: openRecipes
     },
     {
-        text: "My Settings"
+        text: "My Settings",
+        dispatch: openEdit
     }
 ]
