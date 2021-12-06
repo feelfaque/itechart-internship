@@ -22,7 +22,7 @@ const register = async (email, password) => {
 export function* logInWithCredentials({ payload: { email, password } }) {
     try {
         yield logIn(email, password);
-        const user = {email, password};
+        const user = authFirebase.currentUser;
         yield put(logInSuccess(user));
     } catch (error) {
         yield put(logInFailure(error));

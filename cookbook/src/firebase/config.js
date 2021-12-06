@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import {getAuth, onAuthStateChanged} from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBTVYnkskOZIB1DfYzRVJ5e_egjS39QNRI",
@@ -19,5 +19,9 @@ const db = getFirestore();
 
 // init firebase authentication
 const authFirebase = getAuth();
+
+export const addUserToLocalStorage = onAuthStateChanged(authFirebase, (user) => {
+    localStorage.setItem('user', JSON.stringify(user))
+});
 
 export { db, authFirebase };
