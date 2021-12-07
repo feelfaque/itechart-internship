@@ -1,25 +1,31 @@
 {
   "files": {
-    "main.css": "/itechart-internship/static/css/main.146928c4.chunk.css",
-    "main.js": "/itechart-internship/static/js/main.b4d87e44.chunk.js",
-    "main.js.map": "/itechart-internship/static/js/main.b4d87e44.chunk.js.map",
+    "main.css": "/itechart-internship/static/css/main.7560db5f.chunk.css",
+    "main.js": "/itechart-internship/static/js/main.c54fd77c.chunk.js",
+    "main.js.map": "/itechart-internship/static/js/main.c54fd77c.chunk.js.map",
     "runtime-main.js": "/itechart-internship/static/js/runtime-main.d55a5ffa.js",
     "runtime-main.js.map": "/itechart-internship/static/js/runtime-main.d55a5ffa.js.map",
     "static/css/2.679831fc.chunk.css": "/itechart-internship/static/css/2.679831fc.chunk.css",
-    "static/js/2.6ce4fbec.chunk.js": "/itechart-internship/static/js/2.6ce4fbec.chunk.js",
-    "static/js/2.6ce4fbec.chunk.js.map": "/itechart-internship/static/js/2.6ce4fbec.chunk.js.map",
+    "static/js/2.c82ab566.chunk.js": "/itechart-internship/static/js/2.c82ab566.chunk.js",
+    "static/js/2.c82ab566.chunk.js.map": "/itechart-internship/static/js/2.c82ab566.chunk.js.map",
     "index.html": "/itechart-internship/index.html",
     "static/css/2.679831fc.chunk.css.map": "/itechart-internship/static/css/2.679831fc.chunk.css.map",
-    "static/css/main.146928c4.chunk.css.map": "/itechart-internship/static/css/main.146928c4.chunk.css.map",
-    "static/js/2.6ce4fbec.chunk.js.LICENSE.txt": "/itechart-internship/static/js/2.6ce4fbec.chunk.js.LICENSE.txt",
+    "static/css/main.7560db5f.chunk.css.map": "/itechart-internship/static/css/main.7560db5f.chunk.css.map",
+    "static/js/2.c82ab566.chunk.js.LICENSE.txt": "/itechart-internship/static/js/2.c82ab566.chunk.js.LICENSE.txt",
+    "static/media/avatar.613edd9c.jpg": "/itechart-internship/static/media/avatar.613edd9c.jpg",
+    "static/media/fruit.ff727ece.jpg": "/itechart-internship/static/media/fruit.ff727ece.jpg",
+    "static/media/itechartLogo.8c776a84.svg": "/itechart-internship/static/media/itechartLogo.8c776a84.svg",
+    "static/media/Header.css": "/itechart-internship/static/media/profile-icon.afb9a64f.svg",
+    "static/media/recipe-pic.45dc1944.jpg": "/itechart-internship/static/media/recipe-pic.45dc1944.jpg",
+    "static/media/SearchInput.css": "/itechart-internship/static/media/search-icon.034080bc.svg",
     "static/media/SignIn.css": "/itechart-internship/static/media/sign-in-bg.8da7ab2c.jpg",
     "static/media/SignUp.css": "/itechart-internship/static/media/signup-bg.cda552bb.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.d55a5ffa.js",
     "static/css/2.679831fc.chunk.css",
-    "static/js/2.6ce4fbec.chunk.js",
-    "static/css/main.146928c4.chunk.css",
-    "static/js/main.b4d87e44.chunk.js"
+    "static/js/2.c82ab566.chunk.js",
+    "static/css/main.7560db5f.chunk.css",
+    "static/js/main.c54fd77c.chunk.js"
   ]
 }
