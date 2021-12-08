@@ -20,8 +20,8 @@ const db = getFirestore();
 // init firebase authentication
 const authFirebase = getAuth();
 
-export const addUserToLocalStorage = onAuthStateChanged(authFirebase, (user) => {
+const addUserToLocalStorage = onAuthStateChanged(authFirebase, (user) => {
     localStorage.setItem('user', JSON.stringify(user))
 });
 
-export { db, authFirebase };
+export { db, authFirebase, addUserToLocalStorage };

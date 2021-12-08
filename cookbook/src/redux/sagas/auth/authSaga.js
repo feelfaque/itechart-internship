@@ -1,6 +1,7 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { authFirebase } from '../../../firebase/config';
+import { authFirebase, db } from '../../../firebase/config';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc } from "firebase/firestore";
 
 
 import {
@@ -17,6 +18,15 @@ const logIn = async (email, password) => {
 
 const register = async (email, password) => {
     await createUserWithEmailAndPassword(authFirebase, email, password);
+    const currentUser = authFirebase.currentUser;
+    await setDoc(doc(db, 'users', currentUser.uid), {
+        id: currentUser.uid,
+        name: currentUser.email,
+        email: currentUser.email,
+        password: password,
+        shortBio: "",
+        avatar: ""
+    })
 };
 
 export function* logInWithCredentials({ payload: { email, password } }) {

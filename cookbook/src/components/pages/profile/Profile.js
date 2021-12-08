@@ -9,7 +9,6 @@ import ProfileEdit from "./profile-edit/ProfileEdit";
 
 const Profile = () => {
     const currentTabs = useSelector((state) => state.profileNavReducer.currentTabs);
-    console.log(JSON.parse(localStorage.getItem('user')));
     return(
         <>
             <Layout>
