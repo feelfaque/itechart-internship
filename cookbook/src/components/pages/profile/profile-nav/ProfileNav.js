@@ -1,7 +1,7 @@
 import "./ProfileNav.css";
 // import {profileLinks} from "./config";
 import {useDispatch, useSelector} from "react-redux";
-import {openCookbooks, openEdit, openRecipes} from "../../../../redux/actions/profileNav/profileNavActions";
+import {openCookbooks, openEdit, openRecipes} from "../../../../redux/actions/profile-nav/profileNavActions";
 
 const ProfileNav = () => {
     const dispatch = useDispatch();
