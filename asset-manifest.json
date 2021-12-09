@@ -1,18 +1,17 @@
 {
   "files": {
-    "main.css": "/itechart-internship/static/css/main.7560db5f.chunk.css",
-    "main.js": "/itechart-internship/static/js/main.c54fd77c.chunk.js",
-    "main.js.map": "/itechart-internship/static/js/main.c54fd77c.chunk.js.map",
+    "main.css": "/itechart-internship/static/css/main.0cb549d0.chunk.css",
+    "main.js": "/itechart-internship/static/js/main.977719ae.chunk.js",
+    "main.js.map": "/itechart-internship/static/js/main.977719ae.chunk.js.map",
     "runtime-main.js": "/itechart-internship/static/js/runtime-main.d55a5ffa.js",
     "runtime-main.js.map": "/itechart-internship/static/js/runtime-main.d55a5ffa.js.map",
     "static/css/2.679831fc.chunk.css": "/itechart-internship/static/css/2.679831fc.chunk.css",
-    "static/js/2.c82ab566.chunk.js": "/itechart-internship/static/js/2.c82ab566.chunk.js",
-    "static/js/2.c82ab566.chunk.js.map": "/itechart-internship/static/js/2.c82ab566.chunk.js.map",
+    "static/js/2.e22024af.chunk.js": "/itechart-internship/static/js/2.e22024af.chunk.js",
+    "static/js/2.e22024af.chunk.js.map": "/itechart-internship/static/js/2.e22024af.chunk.js.map",
     "index.html": "/itechart-internship/index.html",
     "static/css/2.679831fc.chunk.css.map": "/itechart-internship/static/css/2.679831fc.chunk.css.map",
-    "static/css/main.7560db5f.chunk.css.map": "/itechart-internship/static/css/main.7560db5f.chunk.css.map",
-    "static/js/2.c82ab566.chunk.js.LICENSE.txt": "/itechart-internship/static/js/2.c82ab566.chunk.js.LICENSE.txt",
-    "static/media/avatar.613edd9c.jpg": "/itechart-internship/static/media/avatar.613edd9c.jpg",
+    "static/css/main.0cb549d0.chunk.css.map": "/itechart-internship/static/css/main.0cb549d0.chunk.css.map",
+    "static/js/2.e22024af.chunk.js.LICENSE.txt": "/itechart-internship/static/js/2.e22024af.chunk.js.LICENSE.txt",
     "static/media/fruit.ff727ece.jpg": "/itechart-internship/static/media/fruit.ff727ece.jpg",
     "static/media/itechartLogo.8c776a84.svg": "/itechart-internship/static/media/itechartLogo.8c776a84.svg",
     "static/media/Header.css": "/itechart-internship/static/media/profile-icon.afb9a64f.svg",
@@ -24,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.d55a5ffa.js",
     "static/css/2.679831fc.chunk.css",
-    "static/js/2.c82ab566.chunk.js",
-    "static/css/main.7560db5f.chunk.css",
-    "static/js/main.c54fd77c.chunk.js"
+    "static/js/2.e22024af.chunk.js",
+    "static/css/main.0cb549d0.chunk.css",
+    "static/js/main.977719ae.chunk.js"
   ]
 }
