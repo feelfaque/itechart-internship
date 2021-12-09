@@ -17,8 +17,7 @@ const Profile = () => {
         dispatch(fetchUserDataStart(currentUserId));
     }
     const userData = useSelector(state => state.userDataReducer.user);
-    console.log(userData? userData: "not found");
-    useEffect(fetchUserData);
+    useEffect(fetchUserData, [dispatch, currentUserId]);
 
     return(
         <>
