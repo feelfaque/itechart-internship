@@ -3,7 +3,7 @@ import Logo from "../../logo/Logo";
 import {LogoInfo, NavInfo} from "./config";
 import Nav from "../navigation/Nav";
 import SearchInput from "../../forms/search-input/SearchInput";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from 'react-redux';
 
 const Header = () => {
@@ -22,8 +22,10 @@ const Header = () => {
     return (
         <header className="header">
             <div className="wrapper header--row">
-                <Logo logoClassName={LogoInfo.logoClassName} logoImageClassName={LogoInfo.logoImageClassName}
-                      logoFontClassName={LogoInfo.logoFontClassName}/>
+                <Link to="/">
+                    <Logo logoClassName={LogoInfo.logoClassName} logoImageClassName={LogoInfo.logoImageClassName}
+                          logoFontClassName={LogoInfo.logoFontClassName}/>
+                </Link>
                 <Nav navClassName={NavInfo.navClassName} navLinks={NavInfo.navLinks}
                      linkClassName={NavInfo.linkClassName}/>
                 <SearchInput/>

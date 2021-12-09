@@ -1,11 +1,11 @@
-import {Link} from 'react-router-dom';
 import Layout from "../../page-parts/layout/Layout";
+import RecipeTabsList from "../../page-parts/recipe-tabs-list/RecipeTabsList";
 
 function Home () {
     return(
         <>
             <Layout>
-                <Link to="/signup">Sign up</Link>
+                <RecipeTabsList />
             </Layout>
         </>
     );

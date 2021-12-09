@@ -4,25 +4,25 @@ import {db} from "../../../firebase/config";
 import {fetchUserDataFail, fetchUserDataSuccess} from "../../actions/user-data/userDataActions";
 import types from "../../actions/user-data/userDataActionTypes";
 
-const getUserData = async(id) => {
+const getUserData = async (id) => {
     const docRef = doc(db, "users", id);
     const docSnap = await getDoc(docRef);
     return (await docSnap).data();
 }
 
-export function* fetchUserDataFunc ({payload: userID}) {
+export function* fetchUserDataFunc({payload: userID}) {
     try {
-        let userInfo = yield call(getUserData,userID);
+        let userInfo = yield call(getUserData, userID);
         yield put(fetchUserDataSuccess(userInfo));
     } catch {
         yield put(fetchUserDataFail())
     }
 }
 
-export function* onFetchDataStart () {
+export function* onFetchDataStart() {
     yield takeLatest(types.FETCH_USER_DATA_START, fetchUserDataFunc)
 }
 
-export function* userDataSaga () {
+export function* userDataSaga() {
     yield call(onFetchDataStart);
 }

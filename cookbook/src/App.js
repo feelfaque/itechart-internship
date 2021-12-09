@@ -9,10 +9,19 @@ import SignUp from "./components/pages/sign-up/SignUp";
 import SignIn from "./components/pages/sign-in/SignIn";
 import Profile from "./components/pages/profile/Profile";
 import {addUserToLocalStorage} from "./firebase/config";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchUserDataStart} from "./redux/actions/user-data/userDataActions";
 
 export default function App() {
     useEffect(addUserToLocalStorage);
-  return (
+    const dispatch = useDispatch();
+    const currentUserId = useSelector(state => state.auth.currentUser.uid);
+    const fetchUserData = () => {
+        dispatch(fetchUserDataStart(currentUserId));
+    }
+    useEffect(fetchUserData, [dispatch, currentUserId]);
+
+    return (
     <div className="App">
                 <Routes>
                     <Route path="/signup" element={<SignUp />}/>

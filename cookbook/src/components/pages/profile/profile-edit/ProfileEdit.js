@@ -1,8 +1,9 @@
 import "./ProfileEdit.css";
 import { useSelector } from "react-redux";
+import {userEditData} from "./config";
 
 const ProfileEdit = () => {
-    const user = useSelector(state => state.auth.currentUser);
+    const userData = useSelector(state => state.userDataReducer.user);
 
     return (
             <div className="wrapper profile-edit">
@@ -10,14 +11,10 @@ const ProfileEdit = () => {
                     <h2 className="profile-edit-title">Personal information</h2>
                     <div className="profile-edit--flex">
                         <div className="profile-edit-list">
-                            <p className="profile-edit-text">Name</p>
-                            <p className="profile-edit-text">Email</p>
-                            <p className="profile-edit-text">Password</p>
+                            {userEditData.map((data,i) => <p key={i} className="profile-edit-text">{data.title}</p> )}
                         </div>
                         <div className="profile-edit-list">
-                            <p className="profile-edit-text">John Doe</p>
-                            <p className="profile-edit-text">{user.email}</p>
-                            <p className="profile-edit-text">{user.password}</p>
+                            {userEditData.map((data, i) => <p key={i} className="profile-edit-text">{userData[data.text]}</p> )}
                         </div>
                     </div>
                 </div>

@@ -1,19 +1,16 @@
 import "./ProfileInfo.css";
-import avatar from "../../../../assets/images/avatar.jpg"
-const user = {
-    name: "John Doe",
-    shortBio: "I don’t know about you but I love pizza. Especially when that pizza comes with Papa John’s very own garlic pizza sticks."
-}
+import {useSelector} from "react-redux";
 
 const ProfileInfo = () => {
+    const userData = useSelector(state => state.userDataReducer.user);
     return (
        <>
            <div className="wrapper">
                <div className="profile-info">
-                   <img src={avatar} alt="avatar" className="profile-avatar"/>
+                   <img src={userData.avatar} alt="avatar" className="profile-avatar"/>
                    <div className="profile-description">
-                       <h2 className="profile-name">{user.name}</h2>
-                       <p className="profile-bio">{user.shortBio}</p>
+                       <h2 className="profile-name">{userData.name}</h2>
+                       <p className="profile-bio">{userData.shortBio}</p>
                    </div>
                </div>
            </div>
