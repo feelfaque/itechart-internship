@@ -28,22 +28,6 @@
     margin-bottom: 16px;
 }
 
-.recipe-tab-stats {
-    display: flex;
-    align-items: center;
-
-}
-
-
-.icon {
-    margin-right: 8px;
-    color: var(--icon-grey);
-}
-
-.recipe-tab:hover .icon {
-    color: var(--primary-yellow);
-}
-
 .tab-text {
     font-size: 14px;
     line-height: 19px;
@@ -60,10 +44,6 @@
 .recipe-tab-stats-list {
     display: flex;
     align-items: center;
-}
-
-.recipe-tab-stats-list .recipe-tab-stats:not(:last-of-type) {
-    margin-right: 24px;
 }
 
 .recipe-tab--space-between {

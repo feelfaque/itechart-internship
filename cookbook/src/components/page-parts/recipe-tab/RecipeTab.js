@@ -1,8 +1,9 @@
 import "./RecipeTab.css";
-import {AiFillHeart, AiTwotoneEye} from "react-icons/ai";
 import recipePic from "../../../assets/images/recipe-pic.jpg";
-import {MdModeComment} from "react-icons/md";
 import {FiMoreHorizontal} from "react-icons/fi";
+import TabStatsViews from "../tab-stats-item/TabStatsViews";
+import TabStatsComments from "../tab-stats-item/TabStatsComments";
+import TabStatsLikes from "../tab-stats-item/TabStatsLikes";
 
 const recipe = {
     name: "Fresh meat with potato and cheese ",
@@ -14,7 +15,7 @@ const recipe = {
 }
 const RecipeTab = () => {
     return(
-        <div className="recipe-tab">
+        <div className=" tab recipe-tab">
             <img src={recipePic} alt="recipe cover" className="recipe-tab-photo"/>
             <div className="recipe-tab--column">
                 <div className="recipe-tab--space-between">
@@ -24,17 +25,9 @@ const RecipeTab = () => {
                 <p className="tab-text recipe-tab--margin">{recipe.description}</p>
                 <div className="recipe-tab--space-between">
                     <div className="recipe-tab-stats-list">
-                        <div className="recipe-tab-stats">
-                            <AiTwotoneEye className="icon"/><p className="tab-text">{recipe.views} views</p>
-                        </div>
-                        <div className="recipe-tab-stats">
-                            <AiFillHeart className="icon" />
-                            <p className="tab-text">{recipe.likes} likes</p>
-                        </div>
-                        <div className="recipe-tab-stats">
-                            <MdModeComment className="icon" />
-                            <p className="tab-text">{recipe.comments} comments</p>
-                        </div>
+                        <TabStatsViews num={recipe.views} />
+                        <TabStatsLikes num={recipe.likes} />
+                        <TabStatsComments num={recipe.comments} />
                     </div>
                     <FiMoreHorizontal className="icon" />
                 </div>

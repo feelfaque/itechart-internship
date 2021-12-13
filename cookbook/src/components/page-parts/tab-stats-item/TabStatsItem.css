@@ -1,0 +1,23 @@
+.tab-stats {
+    display: flex;
+    align-items: center;
+}
+
+.tab-text {
+    font-size: 14px;
+    line-height: 19px;
+    color: var(--text-black);
+}
+
+.tab-stats:not(:last-of-type) {
+    margin-right: 24px;
+}
+
+.icon {
+    margin-right: 8px;
+    color: var(--icon-grey);
+}
+
+.tab:hover .icon {
+    color: var(--primary-yellow);
+}

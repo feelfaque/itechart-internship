@@ -22,21 +22,6 @@
     margin-bottom: 16px;
 }
 
-.cookbook-tab-stats {
-    display: flex;
-    align-items: center;
-}
-
-
-.icon {
-    margin-right: 8px;
-    color: var(--icon-grey);
-}
-
-.cookbook-tab:hover .icon {
-    color: var(--primary-yellow);
-}
-
 .tab-text {
     font-size: 14px;
     line-height: 19px;
@@ -55,9 +40,6 @@
     align-items: center;
 }
 
-.cookbook-tab-stats-list .cookbook-tab-stats:not(:last-of-type) {
-    margin-right: 24px;
-}
 
 .cookbook-tab-title {
     width: 100%;
