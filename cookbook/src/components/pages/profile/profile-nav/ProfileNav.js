@@ -1,7 +1,8 @@
 import "./ProfileNav.css";
-// import {profileLinks} from "./config";
+import {profileLinks, linkClass} from "./config";
 import {useDispatch, useSelector} from "react-redux";
 import {openCookbooks, openEdit, openRecipes} from "../../../../redux/actions/profile-nav/profileNavActions";
+import ProfileNavItem from "../profile-nav-item/ProfileNavItem";
 
 const ProfileNav = () => {
     const dispatch = useDispatch();
@@ -21,25 +22,10 @@ const ProfileNav = () => {
             <div className="wrapper profile-nav--flex">
                 <nav className="profile-nav">
                     <ul className="profile-nav-list" onClick={handleClick}>
-                        <li className="profile-nav-item">
-                            <button
-                                className={currentLink === "cookbooks" ? "button profile-nav-button--no-border active-button" : "button profile-nav-button--no-border"}
-                                id="open-cookbooks-button">My Cookbooks
-                            </button>
-                        </li>
-                        <li className="profile-nav-item">
-                            <button
-                                className={currentLink === "recipes" ? "button profile-nav-button--no-border active-button" : "button profile-nav-button--no-border"}
-                                id="open-recipes-button">My Recipes
-                            </button>
-                        </li>
-                        <li className="profile-nav-item">
-                            <button
-                                className={currentLink === "edit" ? "button profile-nav-button--no-border active-button" : "button profile-nav-button--no-border"}
-                                id="open-edit-button">Edit Profile
-                            </button>
-                        </li>
-
+                        {profileLinks.map((item, i) => {
+                            return <ProfileNavItem key={i} text={item.text} id={item.id}
+                                                   className={currentLink === item.currentTab ? linkClass.active : linkClass.disabled}/>
+                        })}
                     </ul>
                 </nav>
                 <button className="button profile-nav-button--yellow">Create New CookBook</button>

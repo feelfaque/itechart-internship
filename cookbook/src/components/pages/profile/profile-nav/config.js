@@ -1,15 +1,23 @@
-
 export const profileLinks = [
     {
         text: "My Cookbooks",
-        dispatch: openCookbooks
+        id: "open-cookbooks-button",
+        currentTab: "cookbooks"
     },
     {
         text: "My Recipes",
-        dispatch: openRecipes
+        id: "open-recipes-button",
+        currentTab: "recipes"
     },
     {
         text: "My Settings",
-        dispatch: openEdit
+        id: "open-edit-button",
+        currentTab: "edit"
     }
 ]
+
+export const linkClass = {
+    active: "button profile-nav-button--no-border active-button",
+    disabled: "button profile-nav-button--no-border"
+}
+

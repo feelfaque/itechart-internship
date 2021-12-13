@@ -2,6 +2,7 @@ import {all, call, put, takeLatest} from 'redux-saga/effects';
 import {authFirebase, db} from '../../../firebase/config';
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
 import {doc, setDoc} from "firebase/firestore";
+import {defaultUserData} from "./config";
 
 
 import {logInFailure, logInSuccess, registerFailure, registerSuccess,} from '../../actions/auth/authActions';
@@ -19,8 +20,8 @@ const register = async (email, password) => {
         name: currentUser.email,
         email: currentUser.email,
         password: password,
-        shortBio: "I don’t know about you but I love pizza. Especially when that pizza comes with Papa John’s very own garlic pizza sticks.",
-        avatar: "https://firebasestorage.googleapis.com/v0/b/cookbook-16369.appspot.com/o/avatar.png?alt=media&token=f866afc3-7b56-45e3-833f-db232a87374f"
+        shortBio: defaultUserData.bio,
+        avatar: defaultUserData.avatar
     })
 };
 

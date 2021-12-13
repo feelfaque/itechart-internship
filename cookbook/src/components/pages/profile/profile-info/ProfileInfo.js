@@ -1,8 +1,11 @@
 import "./ProfileInfo.css";
 import {useSelector} from "react-redux";
 
+
 const ProfileInfo = () => {
     const userData = useSelector(state => state.userDataReducer.user);
+
+
     return (
        <>
            <div className="wrapper">
