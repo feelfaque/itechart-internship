@@ -1,11 +1,14 @@
 import {all, call, put, takeLatest} from 'redux-saga/effects';
 import {authFirebase, db} from '../../../firebase/config';
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth';
 import {doc, setDoc} from "firebase/firestore";
 import {defaultUserData} from "./config";
-
-
-import {logInFailure, logInSuccess, registerFailure, registerSuccess,} from '../../actions/auth/authActions';
+import {
+    logInFailure,
+    logInSuccess,
+    registerFailure,
+    registerSuccess,
+} from '../../actions/auth/authActions';
 import types from '../../actions/auth/authActionTypes';
 
 const logIn = async (email, password) => {
@@ -25,10 +28,15 @@ const register = async (email, password) => {
     })
 };
 
+const logOut = async () => {
+    await signOut(authFirebase);
+}
+
 export function* logInWithCredentials({payload: {email, password}}) {
     try {
         yield logIn(email, password);
         const user = authFirebase.currentUser;
+        localStorage.setItem('user', JSON.stringify(user));
         yield put(logInSuccess(user));
     } catch (error) {
         yield put(logInFailure(error));
@@ -48,6 +56,15 @@ export function* logInAfterRegister({payload: {email, password}}) {
     yield logInWithCredentials({payload: {email, password}});
 }
 
+export function* logOutStart () {
+    try {
+        localStorage.removeItem('user');
+        yield logOut();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export function* onLogInStart() {
     yield takeLatest(types.LOG_IN_START, logInWithCredentials);
 }
@@ -60,10 +77,15 @@ export function* onRegisterSuccess() {
     yield takeLatest(types.REGISTER_SUCCESS, logInAfterRegister);
 }
 
+export function* onLogOutStart() {
+    yield takeLatest(types.LOG_OUT, logOutStart);
+}
+
 export function* authSagas() {
     yield all([
         call(onLogInStart),
         call(onRegisterStart),
         call(onRegisterSuccess),
+        call(onLogOutStart),
     ]);
 }
