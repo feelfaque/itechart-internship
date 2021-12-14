@@ -30,7 +30,7 @@ function SignInForm() {
                             password?</Link></div>
                         <InputField name="password" type="password" />
                     </div>
-                    <button type="submit" className="form-submit-button" disabled={submitting}>Sign up</button>
+                    <button type="submit" className="form-submit-button" disabled={submitting}>Sign in</button>
                 </form>
             )}
         />

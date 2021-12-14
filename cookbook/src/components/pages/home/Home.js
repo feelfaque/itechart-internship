@@ -1,8 +1,11 @@
-import {Link} from 'react-router-dom'
+import Layout from "../../page-parts/layout/Layout";
 
 function Home () {
     return(
-        <Link to="/signup">Sign up</Link>
+        <>
+            <Layout>
+            </Layout>
+        </>
     );
 }
 

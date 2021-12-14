@@ -1,0 +1,27 @@
+.nav-list {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.nav-item:not(:last-of-type) {
+    margin-right: 72px;
+}
+
+.nav-link.nav-link--black {
+    color: var(--text-black);
+}
+
+.nav-link.nav-link--white {
+    color: var(--background-grey);
+}
+
+.nav-link:hover {
+    color: var(--primary-yellow);
+    text-decoration: underline;
+}

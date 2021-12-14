@@ -5,9 +5,34 @@
     --text-black: #181818;
     --text-grey: #494949;
     --background-grey: #F7F7F7;
+    --icon-grey: #DADADA
 }
 
-h1, h2, h3, h4, h5, h6 {
+* {
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
     margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding-inline-start: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 1224px;
 }
 

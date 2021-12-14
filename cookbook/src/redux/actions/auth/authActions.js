@@ -30,6 +30,10 @@ export const registerFailure = (error) => ({
     payload: error,
 });
 
-export const logOut = () => ({
+export const logOutAction = {
     type: types.LOG_OUT,
-});
+};
+
+export const logOutSuccess = {
+    type: types.LOG_OUT_SUCCESS
+};

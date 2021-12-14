@@ -1,8 +1,8 @@
 import types from "../actions/auth/authActionTypes";
 
 const INITIAL_STATE = {
-    currentUser: null,
-    error: null,
+    currentUser: JSON.parse(localStorage.getItem('user')),
+    error: null
 };
 
 const authReducer = (state = INITIAL_STATE, action) => {
@@ -19,8 +19,12 @@ const authReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 error: action.payload,
             };
-        case types.LOG_OUT:
-            return INITIAL_STATE;
+        case types.LOG_OUT_SUCCESS:
+        return {
+            ...state,
+            currentUser: null,
+            error: null
+        }
         default:
             return state;
     }

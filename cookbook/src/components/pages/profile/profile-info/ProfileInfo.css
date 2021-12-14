@@ -1,0 +1,29 @@
+.profile-info {
+    margin-bottom: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-avatar {
+    margin-right: 40px;
+    width: 160px;
+    border-radius: 100px;
+}
+
+.profile-description {
+    color: var(--text-black);
+}
+.profile-name {
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 48px;
+}
+
+.profile-bio {
+    width: 500px;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+}

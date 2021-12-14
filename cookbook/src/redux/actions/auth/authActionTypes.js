@@ -6,6 +6,7 @@ const types = {
     REGISTER_SUCCESS: 'REGISTER_SUCCESS',
     REGISTER_FAILURE: 'REGISTER_FAILURE',
     LOG_OUT: 'LOG_OUT',
+    LOG_OUT_SUCCESS: 'LOG_OUT_SUCCESS'
 };
 
 export default types;

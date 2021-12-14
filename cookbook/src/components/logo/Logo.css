@@ -1,18 +1,37 @@
 .logo {
-    width: 137px;
-    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo-image {
+.logo.big {
+    width: 137px;
+    height: 40px;
+}
+
+.logo-image.big {
     width: 21px;
+}
+
+.logo.small {
+    width: 112px;
+    height: 33px;
+}
+
+.logo-image.small {
+    width: 17px;
 }
 
 .logo-title {
     font-family: 'Nunito', sans-serif;
+}
+
+.logo-title.big {
     font-size: 29px;
+}
+
+.logo-title.small {
+    font-size: 24px;
 }
 
 .logo-text--yellow {
@@ -21,4 +40,8 @@
 
 .logo-text--black {
     color: var(--text-black);
+}
+
+.logo-text--white {
+    color: var(--background-grey);
 }

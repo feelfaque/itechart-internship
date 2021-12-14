@@ -1,0 +1,61 @@
+.recipe-tab {
+    width: 1224px;
+    height: 212px;
+    display: flex;
+    background: #FFFFFF;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);
+    border-radius: 50px 10px 10px 10px;
+    cursor: pointer;
+}
+
+.recipe-tab:not(:last-of-type) {
+    margin-bottom: 24px;
+}
+
+.recipe-tab--column {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.recipe-tab:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.recipe-tab--margin {
+    margin-bottom: 16px;
+}
+
+.tab-text {
+    font-size: 14px;
+    line-height: 19px;
+    color: var(--text-black);
+}
+
+.recipe-tab-photo {
+    width: 288px;
+    height: 212px;
+    border-radius: 50px 10px;
+}
+
+
+.recipe-tab-stats-list {
+    display: flex;
+    align-items: center;
+}
+
+.recipe-tab--space-between {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.recipe-tab-name {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
