@@ -5,11 +5,12 @@ import {doc, setDoc} from "firebase/firestore";
 import {defaultUserData} from "./config";
 import {
     logInFailure,
-    logInSuccess,
+    logInSuccess, logOutSuccess,
     registerFailure,
     registerSuccess,
 } from '../../actions/auth/authActions';
 import types from '../../actions/auth/authActionTypes';
+
 
 const logIn = async (email, password) => {
     await signInWithEmailAndPassword(authFirebase, email, password);
@@ -59,7 +60,8 @@ export function* logInAfterRegister({payload: {email, password}}) {
 export function* logOutStart () {
     try {
         localStorage.removeItem('user');
-        yield logOut();
+        yield logOut;
+        yield put(logOutSuccess);
     } catch (error) {
         console.log(error);
     }
@@ -86,6 +88,6 @@ export function* authSagas() {
         call(onLogInStart),
         call(onRegisterStart),
         call(onRegisterSuccess),
-        call(onLogOutStart),
+        call(onLogOutStart)
     ]);
 }

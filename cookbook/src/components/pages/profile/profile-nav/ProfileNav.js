@@ -3,7 +3,7 @@ import {profileLinks, linkClass} from "./config";
 import {useDispatch, useSelector} from "react-redux";
 import {openCookbooks, openEdit, openRecipes} from "../../../../redux/actions/profile-nav/profileNavActions";
 import ProfileNavItem from "../profile-nav-item/ProfileNavItem";
-import {logOut} from "../../../../redux/actions/auth/authActions";
+import {logOutAction} from "../../../../redux/actions/auth/authActions";
 import {useNavigate} from "react-router-dom";
 
 const ProfileNav = () => {
@@ -22,7 +22,7 @@ const ProfileNav = () => {
     }
 
     const handleLogOut = () => {
-        dispatch(logOut());
+        dispatch(logOutAction);
         navigate("/");
     }
     return (
