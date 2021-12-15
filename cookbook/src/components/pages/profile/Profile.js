@@ -10,17 +10,21 @@ import ModalWindow from "../../page-parts/modal/ModalWindow";
 
 const Profile = () => {
     const currentTabs = useSelector((state) => state.profileNavReducer.currentTabs);
+    const currentModal = useSelector((state) => state.openModalReducer.currentModal);
 
-    return(
+    return (
         <>
             <Layout>
                 <div className="profile">
-                    <ProfileInfo />
-                    <ProfileNav />
-                    {currentTabs === "cookbooks"? <CookbookTabsList />:(currentTabs === "recipes"? <RecipeTabsList /> : <ProfileEdit />)}
+                    <ProfileInfo/>
+                    <ProfileNav/>
+                    {currentTabs === "cookbooks" ? <CookbookTabsList/> : (currentTabs === "recipes" ?
+                        <RecipeTabsList/> : <ProfileEdit/>)}
                 </div>
             </Layout>
-            <ModalWindow titleText="Recipe"/>
+            {currentModal === "new-cookbook" ? <ModalWindow titleText="CookBook"/> : (currentModal === "new-recipe" ?
+                <ModalWindow titleText="Recipe"/> : "")
+            } }
         </>
     );
 }

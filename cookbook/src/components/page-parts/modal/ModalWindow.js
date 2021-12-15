@@ -4,16 +4,23 @@ import {AiOutlineClose} from "react-icons/ai";
 import ModalOverlay from "./ModalOverlay";
 import InputField from "../../forms/input-field/InputField";
 import {Field} from "react-final-form";
+import {useDispatch} from "react-redux";
+import {closeModalAction} from "../../../redux/actions/open-modal/openModalActions";
 
 const ModalWindow = ({titleText}) => {
+    const dispatch = useDispatch();
     const onSubmit = (values) => {console.log(values)};
+    const closeModal = () => {
+        dispatch(closeModalAction);
+    }
+
     return(
 
         <div className="modal-window--container">
             <ModalOverlay />
 
             <div className="modal">
-                <button className="close-modal-button">
+                <button className="close-modal-button" onClick={closeModal}>
                     <AiOutlineClose className="modal-close-button--icon"/>
                 </button>
 
@@ -45,7 +52,7 @@ const ModalWindow = ({titleText}) => {
                             </div>
 
                             <div className="button-list">
-                                <button className="button button--yellow-border button--high">Cancel</button>
+                                <button className="button button--yellow-border button--high" onClick={closeModal}>Cancel</button>
                                 <button type="submit" className="button button--yellow-background button--high" disabled={submitting}>Confirm</button>
                             </div>
                         </form>

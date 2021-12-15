@@ -5,6 +5,10 @@ import {openCookbooks, openEdit, openRecipes} from "../../../../redux/actions/pr
 import ProfileNavItem from "../profile-nav-item/ProfileNavItem";
 import {logOutAction} from "../../../../redux/actions/auth/authActions";
 import {useNavigate} from "react-router-dom";
+import {
+    openNewCookbookModalAction,
+    openNewRecipeModalAction
+} from "../../../../redux/actions/open-modal/openModalActions";
 
 const ProfileNav = () => {
     const dispatch = useDispatch();
@@ -25,6 +29,14 @@ const ProfileNav = () => {
         dispatch(logOutAction);
         navigate("/");
     }
+
+    const openNewCookbookModal = () => {
+        dispatch(openNewCookbookModalAction);
+    }
+
+    const openNewRecipeModal = () => {
+        dispatch(openNewRecipeModalAction);
+    }
     return (
         <>
             <div className="wrapper profile-nav--flex">
@@ -36,7 +48,9 @@ const ProfileNav = () => {
                         })}
                     </ul>
                 </nav>
-                <button className="button profile-nav-button--yellow">Create New CookBook</button>
+                {currentLink === "cookbooks" ? <button className="button profile-nav-button--yellow" onClick={openNewCookbookModal}>Create New
+                    CookBook</button> : (currentLink === "recipes" ?
+                    <button className="button profile-nav-button--yellow" onClick={openNewRecipeModal}>Create New Recipe</button> : "")}
                 <button className="button profile-nav-button--yellow" onClick={handleLogOut}>Log out</button>
             </div>
         </>
