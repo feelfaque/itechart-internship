@@ -30,7 +30,7 @@ const Header = () => {
                      linkClassName={NavInfo.linkClassName}/>
                 <SearchInput/>
                 <div>
-                    <button className="header-button header-button--yellow">Create CookBook</button>
+                    <button className="header-button button--yellow-border">Create CookBook</button>
                     {user ? <button className="header-button header-button--no-border header-button--icon"
                                     onClick={handleProfileNav}>{user.email}</button> :
                         <button className="header-button header-button--no-border" onClick={navSignIn}>Sign

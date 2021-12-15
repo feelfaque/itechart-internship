@@ -36,3 +36,40 @@ a {
     width: 1224px;
 }
 
+.text--yellow {
+    color: var(--primary-yellow);
+}
+
+.button--yellow-border {
+    margin-right: 28px;
+    background-color: #FFFFFF;
+    border: 2px solid var(--primary-yellow);
+    border-radius: 10px;
+    font-size: 20px;
+    color: var(--primary-yellow);
+    cursor: pointer;
+}
+
+.button--yellow-border:hover {
+    background-color: var(--primary-yellow);
+    color: #FFFFFF;
+}
+
+.button--yellow-background {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-yellow);
+    color: var(--text-black);
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.button--low {
+    padding: 12px 32px;
+}
+
+.button--high {
+    padding: 16px 32px;
+}

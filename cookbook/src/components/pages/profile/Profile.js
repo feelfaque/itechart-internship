@@ -6,6 +6,7 @@ import RecipeTabsList from "../../page-parts/recipe-tabs-list/RecipeTabsList";
 import CookbookTabsList from "../../page-parts/cookbook-tabs-list/CookbookTabsList";
 import Layout from "../../page-parts/layout/Layout";
 import ProfileEdit from "./profile-edit/ProfileEdit";
+import ModalWindow from "../../page-parts/modal/ModalWindow";
 
 const Profile = () => {
     const currentTabs = useSelector((state) => state.profileNavReducer.currentTabs);
@@ -19,6 +20,7 @@ const Profile = () => {
                     {currentTabs === "cookbooks"? <CookbookTabsList />:(currentTabs === "recipes"? <RecipeTabsList /> : <ProfileEdit />)}
                 </div>
             </Layout>
+            <ModalWindow titleText="Recipe"/>
         </>
     );
 }
