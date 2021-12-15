@@ -5,8 +5,11 @@ import Nav from "../navigation/Nav";
 import SearchInput from "../../forms/search-input/SearchInput";
 import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from 'react-redux';
+import {useDispatch} from "react-redux";
+import {openNewCookbookModalAction} from "../../../redux/actions/open-modal/openModalActions";
 
 const Header = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const user = useSelector((state) => state.auth.currentUser);
 
@@ -17,6 +20,10 @@ const Header = () => {
 
     const navSignIn = () => {
         navigate("/login");
+    }
+
+    const openNewCookbookModal = () => {
+        dispatch(openNewCookbookModalAction);
     }
 
     return (
@@ -30,7 +37,7 @@ const Header = () => {
                      linkClassName={NavInfo.linkClassName}/>
                 <SearchInput/>
                 <div>
-                    <button className="header-button button--yellow-border">Create CookBook</button>
+                    <button className="header-button button--yellow-border button--low" onClick={openNewCookbookModal}>Create CookBook</button>
                     {user ? <button className="header-button header-button--no-border header-button--icon"
                                     onClick={handleProfileNav}>{user.email}</button> :
                         <button className="header-button header-button--no-border" onClick={navSignIn}>Sign
