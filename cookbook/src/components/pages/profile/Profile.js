@@ -7,10 +7,11 @@ import CookbookTabsList from "../../page-parts/cookbook-tabs-list/CookbookTabsLi
 import Layout from "../../page-parts/layout/Layout";
 import ProfileEdit from "./profile-edit/ProfileEdit";
 import ModalWindow from "../../page-parts/modal/ModalWindow";
+import NewRecipeForm from "../../forms/new-recipe-form/NewRecipeForm";
 
 const Profile = () => {
     const currentTabs = useSelector((state) => state.profileNavReducer.currentTabs);
-    const currentModal = useSelector((state) => state.openModalReducer.currentModal);
+    const currentModal = useSelector((state) => state.modalWindowReducer.currentModal);
 
     return (
         <>
@@ -23,7 +24,7 @@ const Profile = () => {
                 </div>
             </Layout>
             {currentModal === "new-cookbook" ? <ModalWindow titleText="CookBook"/> : (currentModal === "new-recipe" ?
-                <ModalWindow titleText="Recipe"/> : "")
+                <ModalWindow titleText="Recipe" children={<NewRecipeForm />}/> : "")
             } }
         </>
     );

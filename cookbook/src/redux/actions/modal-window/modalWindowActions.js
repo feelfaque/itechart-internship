@@ -1,4 +1,4 @@
-import types from "./openModalActionTypes";
+import types from "./modalWindowActionTypes";
 
 export const openNewCookbookModalAction = {
     type: types.OPEN_NEW_COOKBOOK_MODAL

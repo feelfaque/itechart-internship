@@ -1,10 +1,10 @@
-import types from "../actions/open-modal/openModalActionTypes";
+import types from "../actions/modal-window/modalWindowActionTypes";
 
 const INITIAL_STATE = {
     currentModal: null
 }
 
-const openModalReducer = (state = INITIAL_STATE, action) => {
+const modalWindowReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case types.OPEN_NEW_COOKBOOK_MODAL:
             return {
@@ -20,4 +20,4 @@ const openModalReducer = (state = INITIAL_STATE, action) => {
     }
 }
 
-export default openModalReducer;
+export default modalWindowReducer;

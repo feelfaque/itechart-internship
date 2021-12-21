@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 import {
     openNewCookbookModalAction,
     openNewRecipeModalAction
-} from "../../../../redux/actions/open-modal/openModalActions";
+} from "../../../../redux/actions/modal-window/modalWindowActions";
 
 const ProfileNav = () => {
     const dispatch = useDispatch();

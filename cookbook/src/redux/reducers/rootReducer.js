@@ -3,6 +3,8 @@ import { combineReducers } from "redux";
 import auth from './authReducer';
 import profileNavReducer from "./profileNavReducer";
 import userDataReducer from "./userDataReducer";
-import openModalReducer from "./openModalReducer";
+import modalWindowReducer from "./modalWindowReducer";
+import newRecipeReducer from "./newRecipeReducer";
+import imageStorageReducer from "./imageStorageReducer";
 
-export default combineReducers({auth, profileNavReducer, userDataReducer, openModalReducer});
+export default combineReducers({auth, profileNavReducer, userDataReducer, modalWindowReducer, newRecipeReducer, imageStorageReducer});

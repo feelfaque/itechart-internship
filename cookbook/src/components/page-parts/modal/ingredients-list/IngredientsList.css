@@ -1,0 +1,12 @@
+.ingredients-item {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-ingredient-button {
+    font-size: 24px;
+    color: var(--text-grey);
+    cursor: pointer;
+}

@@ -3,7 +3,7 @@ import ModalWindow from "../../page-parts/modal/ModalWindow";
 import {useSelector} from "react-redux";
 
 function Home () {
-    const currentModal = useSelector((state) => state.openModalReducer.currentModal);
+    const currentModal = useSelector((state) => state.modalWindowReducer.currentModal);
 
     return(
         <>

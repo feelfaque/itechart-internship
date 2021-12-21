@@ -6,7 +6,7 @@ import SearchInput from "../../forms/search-input/SearchInput";
 import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from 'react-redux';
 import {useDispatch} from "react-redux";
-import {openNewCookbookModalAction} from "../../../redux/actions/open-modal/openModalActions";
+import {openNewCookbookModalAction} from "../../../redux/actions/modal-window/modalWindowActions";
 
 const Header = () => {
     const dispatch = useDispatch();
