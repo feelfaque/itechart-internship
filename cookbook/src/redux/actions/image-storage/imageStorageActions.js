@@ -1,10 +1,5 @@
 import types from "./imageStorageActionTypes";
 
-export const selectRecipeImage = (image) => ({
-    type: types.SELECT_RECIPE_IMAGE,
-    payload: image
-})
-
 export const startImageUpload = (image) => ({
     type: types.START_IMAGE_UPLOAD,
     payload: image

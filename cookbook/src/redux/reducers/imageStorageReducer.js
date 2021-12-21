@@ -9,12 +9,6 @@ const INITIAL_STATE = {
 
 const imageStorageReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case types.SELECT_RECIPE_IMAGE:
-            return {
-                ...state,
-                selectedImage: action.payload,
-                message: "Image's selected"
-            }
         case types.IMAGE_UPLOAD_SUCCESS:
             return {
                 ...state,
