@@ -11,13 +11,15 @@ import {
     imageUploadFail, resetImageData,
     startImageUpload
 } from "../../../redux/actions/image-storage/imageStorageActions";
+import {startRecipeUpload} from "../../../redux/actions/data-upload/dataUploadActions";
 
 const NewRecipeForm = () => {
     const dispatch = useDispatch();
 
     const imageUploadError = useSelector(state => state.imageStorageReducer.error && state.imageStorageReducer.error);
     const message = useSelector(state => state.imageStorageReducer.message && state.imageStorageReducer.message);
-    const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL)
+    const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL);
+    const newRecipe = useSelector(state => state.newRecipeReducer && state.newRecipeReducer);
 
     const closeModal = () => {
         dispatch(closeModalAction);
@@ -66,6 +68,8 @@ const NewRecipeForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        dispatch(startRecipeUpload(newRecipe));
+        dispatch(closeModalAction);
     }
 
     return (
@@ -95,7 +99,7 @@ const NewRecipeForm = () => {
                 </div>
                 <div className="buttons-list">
                     <button className="button button--yellow-border button--high" onClick={closeModal}>Cancel</button>
-                    <button type="submit" className="button button--yellow-background button--high" disabled>Confirm
+                    <button type="submit" className="button button--yellow-background button--high">Confirm
                     </button>
                 </div>
         </form>
