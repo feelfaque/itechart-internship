@@ -6,7 +6,12 @@ const INITIAL_STATE = {
     description: null,
     ingredients: [],
     directions: null,
-    cookbook: null
+    cookbook: null,
+    userName: null,
+    userId: JSON.parse(localStorage.getItem('user')).uid,
+    views: 0,
+    comments: 0,
+    likes: 0
 };
 
 const newRecipeReducer = (state = INITIAL_STATE, action) => {
@@ -40,6 +45,11 @@ const newRecipeReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 directions: action.payload
+            }
+        case types.ADD_RECIPE_USERNAME:
+            return {
+                ...state,
+                userName: action.payload
             }
         case types.RESET_RECIPE_DATA:
             return INITIAL_STATE;

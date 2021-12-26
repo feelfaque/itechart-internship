@@ -30,6 +30,11 @@ export const addRecipeDirections = (text) => ({
     payload: text
 })
 
+export const addRecipeUsername = (userName) => ({
+    type: types.ADD_RECIPE_USERNAME,
+    payload: userName
+})
+
 export const resetRecipeData = {
     type: types.RESET_RECIPE_DATA
 }

@@ -2,7 +2,7 @@ import IngredientsList from "../../page-parts/modal/ingredients-list/Ingredients
 import {
     addIngredient,
     addRecipeDescription, addRecipeDirections, addRecipeImage,
-    addRecipeTitle,
+    addRecipeTitle, addRecipeUsername,
     resetRecipeData
 } from "../../../redux/actions/new-recipe/newRecipeActions";
 import {useDispatch, useSelector} from "react-redux";
@@ -16,6 +16,7 @@ import {startRecipeUpload} from "../../../redux/actions/data-upload/dataUploadAc
 const NewRecipeForm = () => {
     const dispatch = useDispatch();
 
+    const userName = useSelector(state => state.userDataReducer.user.name && state.userDataReducer.user.name);
     const imageUploadError = useSelector(state => state.imageStorageReducer.error && state.imageStorageReducer.error);
     const message = useSelector(state => state.imageStorageReducer.message && state.imageStorageReducer.message);
     const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL);
@@ -50,7 +51,9 @@ const NewRecipeForm = () => {
     const handleChange = (e) => {
         const input = e.target;
         switch (input.name) {
-            case "title": dispatch(addRecipeTitle(input.value));
+            case "title":
+                dispatch(addRecipeTitle(input.value));
+                dispatch(addRecipeUsername(userName));
             break;
             case "image": handleFileChange(e.target);
             break;
@@ -70,6 +73,7 @@ const NewRecipeForm = () => {
         e.preventDefault();
         dispatch(startRecipeUpload(newRecipe));
         dispatch(closeModalAction);
+        dispatch(resetRecipeData);
     }
 
     return (
