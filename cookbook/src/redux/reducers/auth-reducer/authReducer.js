@@ -1,4 +1,4 @@
-import types from "../actions/auth/authActionTypes";
+import types from "../../actions/auth/authActionTypes";
 
 const INITIAL_STATE = {
     currentUser: JSON.parse(localStorage.getItem('user')),

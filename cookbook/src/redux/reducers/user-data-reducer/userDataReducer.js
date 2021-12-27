@@ -1,4 +1,4 @@
-import types from "../actions/user-data/userDataActionTypes";
+import types from "../../actions/user-data/userDataActionTypes";
 
 const CURRENT_USER_INFO = {
     user: null,

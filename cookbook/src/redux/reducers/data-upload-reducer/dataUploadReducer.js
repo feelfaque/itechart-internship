@@ -1,4 +1,4 @@
-import types from "../actions/data-upload/dataUploadActionTypes";
+import types from "../../actions/data-upload/dataUploadActionTypes";
 
 const INITIAL_STATE = {
     error: null,

@@ -1,4 +1,4 @@
-import types from "../actions/new-recipe/newRecipeActionTypes";
+import types from "../../actions/new-recipe/newRecipeActionTypes";
 
 const INITIAL_STATE = {
     title: null,

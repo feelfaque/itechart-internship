@@ -1,4 +1,4 @@
-import types from "../actions/modal-window/modalWindowActionTypes";
+import types from "../../actions/modal-window/modalWindowActionTypes";
 
 const INITIAL_STATE = {
     currentModal: null

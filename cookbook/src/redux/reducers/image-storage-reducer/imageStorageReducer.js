@@ -1,4 +1,4 @@
-import types from "../actions/image-storage/imageStorageActionTypes";
+import types from "../../actions/image-storage/imageStorageActionTypes";
 
 const INITIAL_STATE = {
     selectedImage: null,
