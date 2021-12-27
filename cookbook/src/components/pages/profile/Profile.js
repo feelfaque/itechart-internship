@@ -10,6 +10,7 @@ import ModalWindow from "../../page-parts/modal/ModalWindow";
 import NewRecipeForm from "../../forms/new-recipe-form/NewRecipeForm";
 import {useEffect} from "react";
 import {fetchUserRecipesStart} from "../../../redux/actions/data-fetch/dataFetchActions";
+import NewCookbookForm from "../../forms/new-cookbook-form/newCookbookForm";
 
 const Profile = () => {
     const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const Profile = () => {
                         <RecipeTabsList/> : <ProfileEdit/>)}
                 </div>
             </Layout>
-            {currentModal === "new-cookbook" ? <ModalWindow titleText="CookBook"/> : (currentModal === "new-recipe" ?
+            {currentModal === "new-cookbook-reducer" ? <ModalWindow titleText="CookBook" children={<NewCookbookForm/>}/> : (currentModal === "new-recipe" ?
                 <ModalWindow titleText="Recipe" children={<NewRecipeForm />}/> : "")
             } }
         </>

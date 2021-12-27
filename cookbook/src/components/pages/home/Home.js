@@ -9,7 +9,7 @@ function Home () {
         <>
             <Layout>
             </Layout>
-            {currentModal === "new-cookbook" ? <ModalWindow titleText="CookBook"/>: ""}
+            {currentModal === "new-cookbook-reducer" ? <ModalWindow titleText="CookBook"/>: ""}
         </>
     );
 }

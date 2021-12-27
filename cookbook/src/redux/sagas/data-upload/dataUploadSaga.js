@@ -3,9 +3,15 @@ import {db} from '../../../firebase/config';
 import {collection, addDoc} from "firebase/firestore";
 import types from "../../actions/data-upload/dataUploadActionTypes";
 import {recipeUploadFail, recipeUploadSuccess} from "../../actions/data-upload/dataUploadActions";
+import cryptoRandomString from "crypto-random-string";
 
+const generateRecipeId = () => {
+    return cryptoRandomString({length: 7});
+}
 
 const uploadRecipe = async({title, imageUrl, description, ingredients, directions, cookbook, userName, userId, views, comments, likes }) => {
+    const recipeId = generateRecipeId();
+
     await addDoc(collection(db, "recipes"), {
         title,
         imageUrl,
@@ -17,7 +23,8 @@ const uploadRecipe = async({title, imageUrl, description, ingredients, direction
         userId,
         views,
         comments,
-        likes
+        likes,
+        recipeId: recipeId
     });
 }
 

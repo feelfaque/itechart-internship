@@ -8,6 +8,7 @@ import newRecipeReducer from "./new-recipe-reducer/newRecipeReducer";
 import imageStorageReducer from "./image-storage-reducer/imageStorageReducer";
 import dataUploadReducer from "./data-upload-reducer/dataUploadReducer";
 import dataFetchReducer from "./data-fetch-reducer/dataFetchReducer";
+import newCookbookReducer from "./new-cookbook-reducer/newCookbookReducer";
 
 export default combineReducers({
     auth,
@@ -17,5 +18,6 @@ export default combineReducers({
     newRecipeReducer,
     imageStorageReducer,
     dataUploadReducer,
-    dataFetchReducer
+    dataFetchReducer,
+    newCookbookReducer
 });

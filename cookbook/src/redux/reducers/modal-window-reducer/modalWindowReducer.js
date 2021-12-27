@@ -8,7 +8,7 @@ const modalWindowReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case types.OPEN_NEW_COOKBOOK_MODAL:
             return {
-                currentModal: "new-cookbook"
+                currentModal: "new-cookbook-reducer"
             }
         case types.OPEN_NEW_RECIPE_MODAL:
             return {
