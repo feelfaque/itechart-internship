@@ -2,7 +2,7 @@ import types from "../../actions/new-cookbook/newCookbookActionTypes";
 
 const INITIAL_STATE = {
     userName: null,
-    userId: JSON.parse(localStorage.getItem('user')).uid,
+    userId: localStorage.getItem('user')&& JSON.parse(localStorage.getItem('user')).uid,
     title: null,
     imageUrl: null,
     description: null,
@@ -37,7 +37,7 @@ const newCookbookReducer = (state = INITIAL_STATE, action) => {
         case types.ADD_RECIPE:
             return {
                 ...state,
-                recipes: [...state.recipes, action.payload]
+                recipes: [...new Set([...state.recipes, action.payload])]
             }
         case types.DELETE_RECIPE:
             return {

@@ -75,7 +75,7 @@ const NewCookbookForm = () => {
                         className="text--yellow">*</span></label>
                     <input required id="title" name="title" className="form-input" type="text"/>
                 </div>
-                <input type="file" name="image" required className="file-input recipe-file-input" onBlur={!imageUploadError && handleImageUrl}/>
+                <input type="file" name="image" required className="file-input cookbook-file-input" onBlur={!imageUploadError && handleImageUrl}/>
                 {imageUploadError} {message}
                 <div className="form--column form-input--margin">
                     <label htmlFor="description" className="modal-window-form--label">Description</label>

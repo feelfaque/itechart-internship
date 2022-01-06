@@ -84,8 +84,7 @@
     height: 70px;
 }
 
-.recipe-file-input::before {
-    content: "Upload Recipe Image";
+.file-input::before {
     padding: 16px 32px;
     border: none;
     border-radius: 10px;
@@ -95,6 +94,14 @@
     font-weight: bold;
     line-height: 30px;
     cursor: pointer;
+}
+
+.recipe-file-input::before {
+    content: "Upload Recipe Image";
+}
+
+.cookbook-file-input::before {
+    content: "Upload Cookbook Image";
 }
 
 .recipe-file-input:hover::before {

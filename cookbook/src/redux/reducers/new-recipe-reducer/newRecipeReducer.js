@@ -8,7 +8,7 @@ const INITIAL_STATE = {
     directions: null,
     cookbook: null,
     userName: null,
-    userId: JSON.parse(localStorage.getItem('user')).uid,
+    userId: localStorage.getItem('user')&& JSON.parse(localStorage.getItem('user')).uid,
     views: 0,
     comments: 0,
     likes: 0
