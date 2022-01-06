@@ -26,6 +26,18 @@ const dataFetchReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 error: action.payload
             }
+        case types.FETCH_USER_COOKBOOKS_SUCCESS:
+            return {
+                ...state,
+                cookbooks: {
+                    userCookbooks: action.payload
+                }
+            }
+        case types.FETCH_USER_COOKBOOKS_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
         default: return state;
     }
 }

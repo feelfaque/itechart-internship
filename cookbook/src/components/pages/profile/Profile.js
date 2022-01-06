@@ -9,7 +9,7 @@ import ProfileEdit from "./profile-edit/ProfileEdit";
 import ModalWindow from "../../page-parts/modal/ModalWindow";
 import NewRecipeForm from "../../forms/new-recipe-form/NewRecipeForm";
 import {useEffect} from "react";
-import {fetchUserRecipesStart} from "../../../redux/actions/data-fetch/dataFetchActions";
+import {fetchUserCookbooksStart, fetchUserRecipesStart} from "../../../redux/actions/data-fetch/dataFetchActions";
 import NewCookbookForm from "../../forms/new-cookbook-form/newCookbookForm";
 
 const Profile = () => {
@@ -18,11 +18,13 @@ const Profile = () => {
     const currentModal = useSelector((state) => state.modalWindowReducer.currentModal);
     const currentUserId = useSelector(state => state.auth.currentUser.uid && state.auth.currentUser.uid);
     const recipes = useSelector(state => state.dataFetchReducer.recipes.userRecipes && state.dataFetchReducer.recipes.userRecipes);
+    const cookbooks = useSelector(state => state.dataFetchReducer.cookbooks.userCookbooks && state.dataFetchReducer.cookbooks.userCookbooks);
 
-    const fetchUserRecipes = () => {
+    const fetchUserData = () => {
         dispatch(fetchUserRecipesStart(currentUserId));
+        dispatch(fetchUserCookbooksStart(currentUserId));
     }
-    useEffect(fetchUserRecipes, [dispatch, fetchUserRecipes, currentUserId]);
+    useEffect(fetchUserData, [dispatch, fetchUserData, currentUserId]);
 
     return (
         <>
@@ -30,7 +32,7 @@ const Profile = () => {
                 <div className="profile">
                     <ProfileInfo/>
                     <ProfileNav/>
-                    {currentTabs === "cookbooks" ? <CookbookTabsList/> : (currentTabs === "recipes" ?
+                    {currentTabs === "cookbooks" ? <CookbookTabsList cookbooks={cookbooks}/> : (currentTabs === "recipes" ?
                         <RecipeTabsList recipes={recipes}/> : <ProfileEdit/>)}
                 </div>
             </Layout>
