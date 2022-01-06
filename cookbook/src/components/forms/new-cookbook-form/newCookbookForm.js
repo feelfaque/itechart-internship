@@ -1,5 +1,4 @@
 import {closeModalAction} from "../../../redux/actions/modal-window/modalWindowActions";
-import {resetRecipeData} from "../../../redux/actions/new-recipe/newRecipeActions";
 import {
     imageUploadFail,
     resetImageData,
@@ -9,7 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     addCookbookDescription, addCookbookImage,
     addCookbookTitle,
-    addCookbookUsername, addRecipe
+    addCookbookUsername, addRecipe, resetCookbookData
 } from "../../../redux/actions/new-cookbook/newCookbookActions";
 import RecipeTabsList from "../../page-parts/recipe-tabs-list/RecipeTabsList";
 
@@ -26,7 +25,7 @@ const NewCookbookForm = () => {
 
     const closeModal = () => {
         dispatch(closeModalAction);
-        dispatch(resetRecipeData);
+        dispatch(resetCookbookData);
         dispatch(resetImageData);
     }
 
@@ -35,10 +34,12 @@ const NewCookbookForm = () => {
         if (!selectedImage) {
             dispatch(imageUploadFail("Image's not selected!"));
             return;
-        } if (!selectedImage.type.includes('image')) {
+        }
+        if (!selectedImage.type.includes('image')) {
             dispatch(imageUploadFail("Selected file must be an image"));
             return;
-        } if (selectedImage.size > 1000000) {
+        }
+        if (selectedImage.size > 1000000) {
             dispatch(imageUploadFail("Selected image is too big"));
             return;
         }
@@ -62,7 +63,8 @@ const NewCookbookForm = () => {
             case "recipes":
                 dispatch(addRecipe(input.value));
                 break;
-            default: return;
+            default:
+                return;
         }
     }
 
@@ -77,7 +79,8 @@ const NewCookbookForm = () => {
                         className="text--yellow">*</span></label>
                     <input required id="title" name="title" className="form-input" type="text"/>
                 </div>
-                <input type="file" name="image" required className="file-input cookbook-file-input" onBlur={!imageUploadError && handleImageUrl}/>
+                <input type="file" name="image" required className="file-input cookbook-file-input"
+                       onBlur={!imageUploadError && handleImageUrl}/>
                 {imageUploadError} {message}
                 <div className="form--column form-input--margin">
                     <label htmlFor="description" className="modal-window-form--label">Description</label>
@@ -88,7 +91,8 @@ const NewCookbookForm = () => {
                     <select name="recipes" required id="recipes" className="form-input">
                         <option value=""> </option>
                         {recipes && recipes.map(recipe => {
-                            return <option key={recipe.recipeId} id={recipe.recipeId} value={recipe.recipeId}>{recipe.title}</option>
+                            return <option key={recipe.recipeId} id={recipe.recipeId}
+                                           value={recipe.recipeId}>{recipe.title}</option>
                         })}
                     </select>
                 </div>

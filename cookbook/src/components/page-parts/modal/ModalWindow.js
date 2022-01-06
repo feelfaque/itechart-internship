@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {closeModalAction} from "../../../redux/actions/modal-window/modalWindowActions";
 import {resetRecipeData} from "../../../redux/actions/new-recipe/newRecipeActions";
 import {resetImageData} from "../../../redux/actions/image-storage/imageStorageActions";
+import {resetCookbookData} from "../../../redux/actions/new-cookbook/newCookbookActions";
 
 const ModalWindow = ({titleText, children}) => {
     const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const ModalWindow = ({titleText, children}) => {
         dispatch(closeModalAction);
         dispatch(resetRecipeData);
         dispatch(resetImageData);
+        dispatch(resetCookbookData);
     }
     return(
 

@@ -1,7 +1,6 @@
 import types from "../../actions/image-storage/imageStorageActionTypes";
 
 const INITIAL_STATE = {
-    selectedImage: null,
     imageURL: null,
     message: null,
     error: null
