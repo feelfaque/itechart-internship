@@ -1,8 +1,13 @@
-import {call, put, takeLatest} from 'redux-saga/effects';
+import {all, call, put, takeLatest} from 'redux-saga/effects';
 import {db} from '../../../firebase/config';
 import {collection, addDoc} from "firebase/firestore";
 import types from "../../actions/data-upload/dataUploadActionTypes";
-import {recipeUploadFail, recipeUploadSuccess} from "../../actions/data-upload/dataUploadActions";
+import {
+    cookbookUploadFail,
+    cookbookUploadSuccess,
+    recipeUploadFail,
+    recipeUploadSuccess
+} from "../../actions/data-upload/dataUploadActions";
 import cryptoRandomString from "crypto-random-string";
 
 const generateRecipeId = () => {
@@ -28,6 +33,20 @@ const uploadRecipe = async({title, imageUrl, description, ingredients, direction
     });
 }
 
+const uploadCookbook = async({userName, userId, title, imageUrl, description, recipes, views, comments, likes}) => {
+    await addDoc(collection(db, "cookbooks"), {
+        userName,
+        userId,
+        title,
+        imageUrl,
+        description,
+        recipes,
+        views,
+        comments,
+        likes
+    });
+}
+
 export function* uploadRecipeToFirestore ({payload: recipe}) {
     try {
         yield uploadRecipe(recipe);
@@ -37,10 +56,25 @@ export function* uploadRecipeToFirestore ({payload: recipe}) {
     }
 }
 
+export function* uploadCookbookToFirestore({payload: cookbook}) {
+    try {
+        yield uploadCookbook(cookbook);
+        yield put(cookbookUploadSuccess);
+    } catch (error) {
+        yield put(cookbookUploadFail(error));
+    }
+}
 export function* onUploadRecipeStart () {
     yield takeLatest(types.START_RECIPE_UPLOAD, uploadRecipeToFirestore);
 }
 
+export function* onUploadCookbookStart () {
+    yield takeLatest(types.START_COOKBOOK_UPLOAD, uploadCookbookToFirestore);
+}
+
 export function* dataUploadSaga () {
-    yield call(onUploadRecipeStart);
+    yield all([
+        call(onUploadRecipeStart),
+        call(onUploadCookbookStart)
+    ]);
 }

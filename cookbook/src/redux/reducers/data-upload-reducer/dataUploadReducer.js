@@ -17,6 +17,16 @@ const dataUploadReducer = (state = INITIAL_STATE, action) => {
                 error: action.payload,
                 message: null
             }
+        case types.COOKBOOK_UPLOAD_SUCCESS:
+            return {
+                error: null,
+                message: "Cookbook's been uploaded"
+            }
+        case types.COOKBOOK_UPLOAD_FAIL:
+            return {
+                error: action.payload,
+                message: null
+            }
         default: return state;
     }
 }

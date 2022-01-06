@@ -14,8 +14,8 @@ export function* fetchUserDataFunc({payload: userID}) {
     try {
         let userInfo = yield call(getUserData, userID);
         yield put(fetchUserDataSuccess(userInfo));
-    } catch {
-        yield put(fetchUserDataFail())
+    } catch (error) {
+        yield put(fetchUserDataFail(error));
     }
 }
 

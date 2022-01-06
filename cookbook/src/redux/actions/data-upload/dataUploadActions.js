@@ -13,3 +13,17 @@ export const recipeUploadFail = (error) => ({
     type: types.RECIPE_UPLOAD_FAIL,
     payload: error
 })
+
+export const startCookbookUpload = (cookbook) => ({
+    type: types.START_COOKBOOK_UPLOAD,
+    payload: cookbook
+})
+
+export const cookbookUploadSuccess = {
+    type: types.COOKBOOK_UPLOAD_SUCCESS
+}
+
+export const cookbookUploadFail = (error) => ({
+    type: types.RECIPE_UPLOAD_FAIL,
+    payload: error
+})
