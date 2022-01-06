@@ -17,6 +17,7 @@ const Profile = () => {
     const currentTabs = useSelector((state) => state.profileNavReducer.currentTabs);
     const currentModal = useSelector((state) => state.modalWindowReducer.currentModal);
     const currentUserId = useSelector(state => state.auth.currentUser.uid && state.auth.currentUser.uid);
+    const recipes = useSelector(state => state.dataFetchReducer.recipes.userRecipes && state.dataFetchReducer.recipes.userRecipes);
 
     const fetchUserRecipes = () => {
         dispatch(fetchUserRecipesStart(currentUserId));
@@ -30,7 +31,7 @@ const Profile = () => {
                     <ProfileInfo/>
                     <ProfileNav/>
                     {currentTabs === "cookbooks" ? <CookbookTabsList/> : (currentTabs === "recipes" ?
-                        <RecipeTabsList/> : <ProfileEdit/>)}
+                        <RecipeTabsList recipes={recipes}/> : <ProfileEdit/>)}
                 </div>
             </Layout>
             {currentModal === "new-cookbook-reducer" ? <ModalWindow titleText="CookBook" children={<NewCookbookForm/>}/> : (currentModal === "new-recipe" ?

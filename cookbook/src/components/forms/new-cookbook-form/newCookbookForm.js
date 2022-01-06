@@ -11,6 +11,7 @@ import {
     addCookbookTitle,
     addCookbookUsername, addRecipe
 } from "../../../redux/actions/new-cookbook/newCookbookActions";
+import RecipeTabsList from "../../page-parts/recipe-tabs-list/RecipeTabsList";
 
 const NewCookbookForm = () => {
     const dispatch = useDispatch();
@@ -20,7 +21,8 @@ const NewCookbookForm = () => {
     const imageUploadError = useSelector(state => state.imageStorageReducer.error && state.imageStorageReducer.error);
     const message = useSelector(state => state.imageStorageReducer.message && state.imageStorageReducer.message);
     const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL);
-    const selectedRecipes = useSelector(state => state.newCookbookReducer.recipes)
+    const selectedRecipesIDs = useSelector(state => state.newCookbookReducer.recipes);
+    const selectedRecipes = recipes.filter(recipe => selectedRecipesIDs.indexOf(recipe.recipeId) !== -1);
 
     const closeModal = () => {
         dispatch(closeModalAction);
@@ -91,7 +93,7 @@ const NewCookbookForm = () => {
                     </select>
                 </div>
             </div>
-            {selectedRecipes && selectedRecipes}
+            <RecipeTabsList recipes={selectedRecipes && selectedRecipes}/>
 
             <div className="buttons-list">
                 <button className="button button--yellow-border button--high" onClick={closeModal}>Cancel</button>
