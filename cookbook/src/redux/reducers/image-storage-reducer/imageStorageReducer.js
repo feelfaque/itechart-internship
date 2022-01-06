@@ -17,7 +17,7 @@ const imageStorageReducer = (state = INITIAL_STATE, action) => {
             }
         case types.IMAGE_UPLOAD_FAIL:
         return {
-            ...state,
+            ...INITIAL_STATE,
                 error: action.payload
         }
         case types.RESET_IMAGE_DATA:
