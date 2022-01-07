@@ -11,6 +11,7 @@ import {
     addCookbookUsername, addRecipe, resetCookbookData
 } from "../../../redux/actions/new-cookbook/newCookbookActions";
 import RecipeTabsList from "../../page-parts/recipe-tabs-list/RecipeTabsList";
+import {startCookbookUpload} from "../../../redux/actions/data-upload/dataUploadActions";
 
 const NewCookbookForm = () => {
     const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const NewCookbookForm = () => {
     const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL);
     const selectedRecipesIDs = useSelector(state => state.newCookbookReducer.recipes);
     const selectedRecipes = recipes.filter(recipe => selectedRecipesIDs.indexOf(recipe.recipeId) !== -1);
+    const cookbook = useSelector(state => state.newCookbookReducer && state.newCookbookReducer);
 
     const closeModal = () => {
         dispatch(closeModalAction);
@@ -71,8 +73,16 @@ const NewCookbookForm = () => {
     const handleImageUrl = () => {
         dispatch(addCookbookImage(imageURL));
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(startCookbookUpload(cookbook));
+        dispatch(closeModalAction);
+        dispatch(resetCookbookData);
+    }
+
     return (
-        <form className="modal-window-form" onChange={handleChange}>
+        <form className="modal-window-form" onChange={handleChange} onSubmit={handleSubmit}>
             <div className="inputs-list">
                 <div className="form--column">
                     <label htmlFor="title" className="modal-window-form--label">Cookbook Title<span

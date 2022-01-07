@@ -24,7 +24,8 @@ const Profile = () => {
         dispatch(fetchUserRecipesStart(currentUserId));
         dispatch(fetchUserCookbooksStart(currentUserId));
     }
-    useEffect(fetchUserData, [dispatch, fetchUserData, currentUserId]);
+
+    useEffect(fetchUserData, []);
 
     return (
         <>
@@ -32,8 +33,10 @@ const Profile = () => {
                 <div className="profile">
                     <ProfileInfo/>
                     <ProfileNav/>
-                    {currentTabs === "cookbooks" ? <CookbookTabsList cookbooks={cookbooks}/> : (currentTabs === "recipes" ?
-                        <RecipeTabsList recipes={recipes}/> : <ProfileEdit/>)}
+                    <div className="wrapper">
+                        {currentTabs === "cookbooks" ? <CookbookTabsList cookbooks={cookbooks}/> : (currentTabs === "recipes" ?
+                            <RecipeTabsList recipes={recipes}/> : <ProfileEdit/>)}
+                    </div>
                 </div>
             </Layout>
             {currentModal === "new-cookbook-reducer" ? <ModalWindow titleText="CookBook" children={<NewCookbookForm/>}/> : (currentModal === "new-recipe" ?
