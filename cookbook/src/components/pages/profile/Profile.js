@@ -13,19 +13,17 @@ import {fetchUserCookbooksStart, fetchUserRecipesStart} from "../../../redux/act
 import NewCookbookForm from "../../forms/new-cookbook-form/newCookbookForm";
 
 const Profile = () => {
-    const dispatch = useDispatch();
     const currentTabs = useSelector((state) => state.profileNavReducer.currentTabs);
     const currentModal = useSelector((state) => state.modalWindowReducer.currentModal);
-    const currentUserId = useSelector(state => state.auth.currentUser.uid && state.auth.currentUser.uid);
     const recipes = useSelector(state => state.dataFetchReducer.recipes.userRecipes && state.dataFetchReducer.recipes.userRecipes);
     const cookbooks = useSelector(state => state.dataFetchReducer.cookbooks.userCookbooks && state.dataFetchReducer.cookbooks.userCookbooks);
 
-    const fetchUserData = () => {
+   /* const fetchUserData = () => {
         dispatch(fetchUserRecipesStart(currentUserId));
         dispatch(fetchUserCookbooksStart(currentUserId));
     }
 
-    useEffect(fetchUserData, []);
+    useEffect(fetchUserData, []);*/
 
     return (
         <>
