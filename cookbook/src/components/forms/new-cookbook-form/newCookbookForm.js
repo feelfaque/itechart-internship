@@ -12,18 +12,21 @@ import {
 } from "../../../redux/actions/new-cookbook/newCookbookActions";
 import RecipeTabsList from "../../page-parts/recipe-tabs-list/RecipeTabsList";
 import {startCookbookUpload} from "../../../redux/actions/data-upload/dataUploadActions";
+import {fetchUserCookbooksStart} from "../../../redux/actions/data-fetch/dataFetchActions";
 
 const NewCookbookForm = () => {
     const dispatch = useDispatch();
 
     const recipes = useSelector(state => state.dataFetchReducer.recipes.userRecipes);
     const userName = useSelector(state => state.userDataReducer.user.name && state.userDataReducer.user.name);
+    const currentUserId = useSelector(state => state.auth.currentUser.uid && state.auth.currentUser.uid);
     const imageUploadError = useSelector(state => state.imageStorageReducer.error && state.imageStorageReducer.error);
     const message = useSelector(state => state.imageStorageReducer.message && state.imageStorageReducer.message);
     const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL);
     const selectedRecipesIDs = useSelector(state => state.newCookbookReducer.recipes);
     const selectedRecipes = recipes.filter(recipe => selectedRecipesIDs.indexOf(recipe.recipeId) !== -1);
     const cookbook = useSelector(state => state.newCookbookReducer && state.newCookbookReducer);
+
 
     const closeModal = () => {
         dispatch(closeModalAction);
@@ -77,8 +80,8 @@ const NewCookbookForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(startCookbookUpload(cookbook));
-        dispatch(closeModalAction);
-        dispatch(resetCookbookData);
+        dispatch(fetchUserCookbooksStart(currentUserId));
+        closeModal();
     }
 
     return (

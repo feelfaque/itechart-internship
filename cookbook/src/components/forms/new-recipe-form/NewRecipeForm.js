@@ -12,11 +12,13 @@ import {
     startImageUpload
 } from "../../../redux/actions/image-storage/imageStorageActions";
 import {startRecipeUpload} from "../../../redux/actions/data-upload/dataUploadActions";
+import {fetchUserRecipesStart} from "../../../redux/actions/data-fetch/dataFetchActions";
 
 const NewRecipeForm = () => {
     const dispatch = useDispatch();
 
     const userName = useSelector(state => state.userDataReducer.user.name && state.userDataReducer.user.name);
+    const currentUserId = useSelector(state => state.auth.currentUser.uid && state.auth.currentUser.uid);
     const imageUploadError = useSelector(state => state.imageStorageReducer.error && state.imageStorageReducer.error);
     const message = useSelector(state => state.imageStorageReducer.message && state.imageStorageReducer.message);
     const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL);
@@ -72,8 +74,8 @@ const NewRecipeForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(startRecipeUpload(newRecipe));
-        dispatch(closeModalAction);
-        dispatch(resetRecipeData);
+        dispatch(fetchUserRecipesStart(currentUserId));
+        closeModal();
     }
 
     return (
