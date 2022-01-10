@@ -1,7 +1,7 @@
 import { all, call } from 'redux-saga/effects';
 
 import { authSagas } from './auth/authSaga';
-import {userDataSaga} from "./user-data/fetchUserDataSaga";
+import {userDataSaga} from "./user-data/userDataSaga";
 import {imageStorageSaga} from "./image-storage/imageStorageSaga";
 import {dataUploadSaga} from "./data-upload/dataUploadSaga";
 import {dataFetchSaga} from "./data-fetch/dataFetchSaga";

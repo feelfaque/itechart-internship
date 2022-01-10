@@ -15,6 +15,10 @@ const userDataReducer = (state = CURRENT_USER_INFO, action) => {
             ...state,
             error: action.payload
         }
+        case types.UPDATE_USER_AVATAR_FAIL: return {
+            ...state,
+            error: action.payload
+        }
         default: return state;
     }
 }

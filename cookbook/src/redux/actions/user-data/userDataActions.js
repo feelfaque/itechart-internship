@@ -14,3 +14,17 @@ export const fetchUserDataSuccess = (userData) => ({
     type: types.FETCH_USER_DATA_SUCCESS,
     payload: userData
 })
+
+export const updateUserAvatarStart = (url) => ({
+    type: types.UPDATE_USER_AVATAR_START,
+    payload: url
+})
+
+export const updateUserAvatarFail = (error) => ({
+    type: types.UPDATE_USER_AVATAR_FAIL,
+    payload: error
+})
+
+export const updateUserAvatarSuccess = {
+    type: types.UPDATE_USER_AVATAR_SUCCESS
+}

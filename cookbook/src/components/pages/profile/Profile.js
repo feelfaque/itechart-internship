@@ -40,11 +40,11 @@ const Profile = () => {
         <>
             <Layout>
                 <div className="profile">
-                    <ProfileInfo/>
+                    <ProfileInfo handleFileChange={handleFileChange}/>
                     <ProfileNav/>
                     <div className="wrapper">
                         {currentTabs === "cookbooks" ? <CookbookTabsList cookbooks={cookbooks}/> : (currentTabs === "recipes" ?
-                            <RecipeTabsList recipes={recipes}/> : <ProfileEdit/>)}
+                            <RecipeTabsList recipes={recipes}/> : <ProfileEdit />)}
                     </div>
                 </div>
             </Layout>
