@@ -15,6 +15,8 @@ const ModalWindow = ({titleText, children}) => {
         dispatch(resetImageData);
         dispatch(resetCookbookData);
     }
+
+
     return(
 
         <div className="modal-window--container">

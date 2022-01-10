@@ -11,7 +11,7 @@ const CookbookTabsList = ({cookbooks}) => {
     const fetchUserData = () => {
         dispatch(fetchUserCookbooksStart(currentUserId));
     }
-    useEffect(fetchUserData, []);
+    useEffect(fetchUserData, [currentUserId, dispatch]);
 
     return (
         <>

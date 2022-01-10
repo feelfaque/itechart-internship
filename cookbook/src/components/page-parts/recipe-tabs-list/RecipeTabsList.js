@@ -11,7 +11,7 @@ const RecipeTabsList = ({recipes}) => {
     const fetchUserData = () => {
         dispatch(fetchUserRecipesStart(currentUserId));
     }
-    useEffect(fetchUserData, []);
+    useEffect(fetchUserData, [currentUserId, dispatch]);
     return<>
         <div className="recipe-tabs-list">
             {recipes && recipes.map((recipe, i) => {

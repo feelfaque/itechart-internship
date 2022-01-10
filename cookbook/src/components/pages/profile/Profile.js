@@ -8,22 +8,33 @@ import Layout from "../../page-parts/layout/Layout";
 import ProfileEdit from "./profile-edit/ProfileEdit";
 import ModalWindow from "../../page-parts/modal/ModalWindow";
 import NewRecipeForm from "../../forms/new-recipe-form/NewRecipeForm";
-import {useEffect} from "react";
-import {fetchUserCookbooksStart, fetchUserRecipesStart} from "../../../redux/actions/data-fetch/dataFetchActions";
 import NewCookbookForm from "../../forms/new-cookbook-form/newCookbookForm";
+import {imageUploadFail, startImageUpload} from "../../../redux/actions/image-storage/imageStorageActions";
 
 const Profile = () => {
+    const dispatch = useDispatch();
     const currentTabs = useSelector((state) => state.profileNavReducer.currentTabs);
     const currentModal = useSelector((state) => state.modalWindowReducer.currentModal);
     const recipes = useSelector(state => state.dataFetchReducer.recipes.userRecipes && state.dataFetchReducer.recipes.userRecipes);
     const cookbooks = useSelector(state => state.dataFetchReducer.cookbooks.userCookbooks && state.dataFetchReducer.cookbooks.userCookbooks);
 
-   /* const fetchUserData = () => {
-        dispatch(fetchUserRecipesStart(currentUserId));
-        dispatch(fetchUserCookbooksStart(currentUserId));
+    const handleFileChange = (input) => {
+        const selectedImage = input.files[0];
+        if (!selectedImage) {
+            dispatch(imageUploadFail("Image's not selected!"));
+            return;
+        }
+        if (!selectedImage.type.includes('image')) {
+            dispatch(imageUploadFail("Selected file must be an image"));
+            return;
+        }
+        if (selectedImage.size > 1000000) {
+            dispatch(imageUploadFail("Selected image is too big"));
+            return;
+        }
+        dispatch(imageUploadFail(null));
+        dispatch(startImageUpload(selectedImage));
     }
-
-    useEffect(fetchUserData, []);*/
 
     return (
         <>
@@ -37,8 +48,8 @@ const Profile = () => {
                     </div>
                 </div>
             </Layout>
-            {currentModal === "new-cookbook-reducer" ? <ModalWindow titleText="CookBook" children={<NewCookbookForm/>}/> : (currentModal === "new-recipe" ?
-                <ModalWindow titleText="Recipe" children={<NewRecipeForm />}/> : "")
+            {currentModal === "new-cookbook-reducer" ? <ModalWindow titleText="CookBook" children={<NewCookbookForm handleFileChange={handleFileChange}/>}/> : (currentModal === "new-recipe" ?
+                <ModalWindow titleText="Recipe" children={<NewRecipeForm handleFileChange={handleFileChange}/>}/> : "")
             } }
         </>
     );

@@ -7,14 +7,11 @@ import {
 } from "../../../redux/actions/new-recipe/newRecipeActions";
 import {useDispatch, useSelector} from "react-redux";
 import {closeModalAction} from "../../../redux/actions/modal-window/modalWindowActions";
-import {
-    imageUploadFail, resetImageData,
-    startImageUpload
-} from "../../../redux/actions/image-storage/imageStorageActions";
+import {resetImageData} from "../../../redux/actions/image-storage/imageStorageActions";
 import {startRecipeUpload} from "../../../redux/actions/data-upload/dataUploadActions";
 import {fetchUserRecipesStart} from "../../../redux/actions/data-fetch/dataFetchActions";
 
-const NewRecipeForm = () => {
+const NewRecipeForm = ({handleFileChange}) => {
     const dispatch = useDispatch();
 
     const userName = useSelector(state => state.userDataReducer.user.name && state.userDataReducer.user.name);
@@ -32,22 +29,6 @@ const NewRecipeForm = () => {
     const handleAdd = (e) => {
         dispatch(addIngredient(e.target.value));
         e.target.value = "";
-    }
-
-    const handleFileChange = (input) => {
-        const selectedImage = input.files[0];
-        if (!selectedImage) {
-            dispatch(imageUploadFail("Image's not selected!"));
-            return;
-        } if (!selectedImage.type.includes('image')) {
-            dispatch(imageUploadFail("Selected file must be an image"));
-            return;
-        } if (selectedImage.size > 1000000) {
-            dispatch(imageUploadFail("Selected image is too big"));
-            return;
-        }
-        dispatch(imageUploadFail(null));
-        dispatch(startImageUpload(selectedImage));
     }
 
     const handleChange = (e) => {
