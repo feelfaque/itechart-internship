@@ -19,6 +19,18 @@ const userDataReducer = (state = CURRENT_USER_INFO, action) => {
             ...state,
             error: action.payload
         }
+        case types.UPDATE_USER_NAME_FAIL: return {
+            ...state,
+            error: action.payload
+        }
+        case types.UPDATE_USER_EMAIL_FAIL: return {
+            ...state,
+            error: action.payload
+        }
+        case types.UPDATE_USER_PASSWORD_FAIL: return {
+            ...state,
+            error: action.payload
+        }
         default: return state;
     }
 }

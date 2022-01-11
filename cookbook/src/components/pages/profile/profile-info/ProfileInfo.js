@@ -9,6 +9,7 @@ const ProfileInfo = ({handleFileChange}) => {
     const currentTabs = useSelector((state) => state.profileNavReducer.currentTabs);
     const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL);
 
+
     const handleChange = (e) => {
         handleFileChange(e.target);
     }
