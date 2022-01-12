@@ -1,4 +1,4 @@
-import types from "../actions/profile-nav/profileNavActionTypes";
+import types from "../../actions/profile-nav/profileNavActionTypes";
 
 const INITIAL_STATE = {
     currentTabs: "cookbooks"

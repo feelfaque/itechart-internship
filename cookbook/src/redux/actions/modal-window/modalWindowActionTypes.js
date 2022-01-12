@@ -1,0 +1,7 @@
+const types = {
+    OPEN_NEW_COOKBOOK_MODAL: "OPEN_NEW_COOKBOOK_MODAL",
+    OPEN_NEW_RECIPE_MODAL: "OPEN_NEW_RECIPE_MODAL",
+    CLOSE_MODAL: "CLOSE_MODAL"
+}
+
+export default types;

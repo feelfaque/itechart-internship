@@ -13,19 +13,9 @@
     cursor: pointer;
 }
 
-.header-button--yellow {
+.header .button--yellow-border {
     width: 225px;
     height: 54px;
-    margin-right: 28px;
-    border: 2px solid var(--primary-yellow);
-    border-radius: 10px;
-    font-size: 20px;
-    color: var(--primary-yellow);
-}
-
-.header-button--yellow:hover {
-    background-color: var(--primary-yellow);
-    color: #FFFFFF;
 }
 
 .header-button--no-border {

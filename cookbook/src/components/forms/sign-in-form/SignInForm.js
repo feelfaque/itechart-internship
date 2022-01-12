@@ -18,7 +18,7 @@ function SignInForm() {
         <Form
             onSubmit={onSubmit}
             validate={validate}
-            render={({handleSubmit, form, submitting, pristine, values}) => (
+            render={({handleSubmit, valid}) => (
                 <form onSubmit={handleSubmit}>
                     <div className="form--column">
                         <label className="form-input--text">Email</label>
@@ -30,7 +30,7 @@ function SignInForm() {
                             password?</Link></div>
                         <InputField name="password" type="password" />
                     </div>
-                    <button type="submit" className="form-submit-button" disabled={submitting}>Sign in</button>
+                    <button type="submit" className="button--yellow-background" disabled={!valid}>Sign in</button>
                 </form>
             )}
         />

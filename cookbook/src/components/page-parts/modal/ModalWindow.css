@@ -1,0 +1,109 @@
+.modal-window--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(24,24,24,0.5);
+    overflow: auto;
+}
+
+.modal {
+    position: absolute;
+    top: 168px;
+    margin-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.modal-window {
+    width: 808px;
+    max-width: 100%;
+    padding: 72px 56px;
+    z-index: 1;
+    background: rgba(255,255,255,1);
+    border-radius: 10px;
+    color: var(--text-black);
+}
+
+.close-modal-button {
+    margin-bottom: 80px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.modal-close-button--icon {
+    color: var(--icon-grey);
+    font-size: 35px;
+}
+
+.modal-window-title {
+    margin-bottom: 40px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 48px;
+}
+
+.modal-window-form {
+    width: 696px;
+}
+
+.modal-window-form .inputs-list {
+    margin-bottom: 56px;
+}
+
+.inputs-list .button {
+    margin-top: 24px;
+}
+
+.modal-window-form--label {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.buttons-list {
+    margin-top: 55px;
+}
+
+.file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.file-input {
+    padding-top: 24px;
+    height: 70px;
+}
+
+.file-input::before {
+    padding: 16px 32px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-yellow);
+    color: var(--text-black);
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.recipe-file-input::before {
+    content: "Upload Recipe Image";
+}
+
+.cookbook-file-input::before {
+    content: "Upload Cookbook Image";
+}
+
+.recipe-file-input:hover::before {
+    color: #FFFFFF;
+}

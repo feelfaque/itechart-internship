@@ -1,13 +1,19 @@
+const emailCheck = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+const passwordCheck = /^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{6,16}$/;
+
 export const validate = (values) => {
     const errors = {};
     if (!values.email) {
         errors.email = "Email is required";
     }
-    if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(values.email)) {
+    if (!emailCheck.test(values.email)) {
         errors.email = "Email isn't valid";
     }
     if (!values.password) {
         errors.password = "Password is required";
+    }
+    if (!passwordCheck.test(values.password)) {
+        errors.password = "Password has to be 6 to 16 characters long and include letters and numbers";
     }
     return errors;
 }

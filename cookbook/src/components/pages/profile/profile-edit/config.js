@@ -12,3 +12,7 @@ export const userEditData = [
         text: "password"
     }
 ]
+
+export const passwordCheck = /^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{6,16}$/;
+
+export const emailCheck = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;

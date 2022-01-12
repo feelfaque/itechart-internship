@@ -17,7 +17,7 @@ function SignUpForm() {
         <Form
             onSubmit={onSubmit}
             validate={validate}
-            render={({handleSubmit, form, submitting, pristine, values}) => (
+            render={({handleSubmit, valid}) => (
                 <form onSubmit={handleSubmit}>
                     <div className="form--column">
                         <label className="form-input--text">Email</label>
@@ -31,7 +31,7 @@ function SignUpForm() {
                         <label className="form-input--text">Confirm Password</label>
                         <InputField name="confirm" type="password" />
                     </div>
-                    <button type="submit" className="form-submit-button" disabled={submitting}>Sign up</button>
+                    <button type="submit" className="button--yellow-background" disabled={!valid}>Sign up</button>
                 </form>
             )}
         />

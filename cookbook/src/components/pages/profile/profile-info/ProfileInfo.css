@@ -6,6 +6,7 @@
 
 .profile-avatar {
     margin-right: 40px;
+    height: 160px;
     width: 160px;
     border-radius: 100px;
 }
@@ -26,4 +27,28 @@
     font-family: "Roboto", sans-serif;
     font-size: 18px;
     line-height: 22px;
+}
+
+.profile-avatar--container {
+    display: flex;
+    position: relative;
+}
+.user-photo-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 160px;
+    width: 160px;
+    background-color: var(--text-black);
+    opacity: 50%;
+    background-image: url("../../../../assets/icons/avatar-upload.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.user-photo-input::-webkit-file-upload-button {
+    visibility: hidden;
 }
