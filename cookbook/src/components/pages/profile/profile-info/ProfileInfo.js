@@ -26,7 +26,8 @@ const ProfileInfo = ({handleFileChange}) => {
                         {currentTabs === "edit" ?
                             <div className="profile-avatar--container">
                                 <img src={userData.avatar} alt="avatar" className="profile-avatar"/>
-                                <input type="file" className="user-photo-input" onChange={handleChange} onBlur={handleAvatarUpdate}/>
+                                <input type="file" className="user-photo-input" onChange={handleChange}
+                                       onBlur={handleAvatarUpdate}/>
                             </div> :
                             <img src={userData.avatar} alt="avatar" className="profile-avatar"/>}
                         <div className="profile-description">

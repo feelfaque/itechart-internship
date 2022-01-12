@@ -43,12 +43,14 @@ const Profile = () => {
                     <ProfileInfo handleFileChange={handleFileChange}/>
                     <ProfileNav/>
                     <div className="wrapper">
-                        {currentTabs === "cookbooks" ? <CookbookTabsList cookbooks={cookbooks}/> : (currentTabs === "recipes" ?
-                            <RecipeTabsList recipes={recipes}/> : <ProfileEdit />)}
+                        {currentTabs === "cookbooks" ?
+                            <CookbookTabsList cookbooks={cookbooks}/> : (currentTabs === "recipes" ?
+                                <RecipeTabsList recipes={recipes}/> : <ProfileEdit/>)}
                     </div>
                 </div>
             </Layout>
-            {currentModal === "new-cookbook-reducer" ? <ModalWindow titleText="CookBook" children={<NewCookbookForm handleFileChange={handleFileChange}/>}/> : (currentModal === "new-recipe" ?
+            {currentModal === "new-cookbook-reducer" ? <ModalWindow titleText="CookBook" children={<NewCookbookForm
+                handleFileChange={handleFileChange}/>}/> : (currentModal === "new-recipe" ?
                 <ModalWindow titleText="Recipe" children={<NewRecipeForm handleFileChange={handleFileChange}/>}/> : "")
             } }
         </>

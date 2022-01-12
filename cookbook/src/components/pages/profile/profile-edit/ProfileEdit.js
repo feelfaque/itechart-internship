@@ -58,26 +58,28 @@ const ProfileEdit = () => {
             case "password":
                 validatePassword(inputValue);
                 break;
-            default: return;
+            default:
+                return;
         }
     }
-    console.log(inputValue, error);
 
     return (
-            <div className="wrapper profile-edit">
-                <div className="profile-edit-card">
-                    <h2 className="profile-edit-title">Personal information</h2>
-                    <div className="profile-edit--flex">
-                        <div className="profile-edit-list">
-                            {userEditData.map((data,i) => <p key={i} className="profile-edit-text">{data.title}</p> )}
-                        </div>
-                        <div className="profile-edit-list" onDoubleClick={openInput}>
-                            {userEditData.map((data, i) => inputs === data.text? <input key={i} type="text" name={data.text} onChange={handleChange} onBlur={updateData}/> : <p key={i} className="profile-edit-text" id={data.text}>{userData[data.text]}</p> )}
-                        </div>
-                        {error}
+        <div className="wrapper profile-edit">
+            <div className="profile-edit-card">
+                <h2 className="profile-edit-title">Personal information</h2>
+                <div className="profile-edit--flex">
+                    <div className="profile-edit-list">
+                        {userEditData.map((data, i) => <p key={i} className="profile-edit-text">{data.title}</p>)}
                     </div>
+                    <div className="profile-edit-list" onDoubleClick={openInput}>
+                        {userEditData.map((data, i) => inputs === data.text ?
+                            <input key={i} type="text" name={data.text} onChange={handleChange} onBlur={updateData}/> :
+                            <p key={i} className="profile-edit-text" id={data.text}>{userData[data.text]}</p>)}
+                    </div>
+                    {error}
                 </div>
             </div>
+        </div>
     );
 }
 
