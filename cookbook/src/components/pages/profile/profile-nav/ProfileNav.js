@@ -1,19 +1,19 @@
 import "./ProfileNav.css";
-import {profileLinks, linkClass} from "./config";
+import {profileLinks} from "./config";
 import {useDispatch, useSelector} from "react-redux";
-import {openCookbooks, openEdit, openRecipes} from "../../../../redux/actions/profile-nav/profileNavActions";
-import ProfileNavItem from "../profile-nav-item/ProfileNavItem";
+import {openCookbooks, openEdit, openRecipes} from "../../../../redux/actions/page-nav/pageNavActions";
 import {logOutAction} from "../../../../redux/actions/auth/authActions";
 import {useNavigate} from "react-router-dom";
 import {
     openNewCookbookModalAction,
     openNewRecipeModalAction
 } from "../../../../redux/actions/modal-window/modalWindowActions";
+import PageNav from "../../../page-parts/page-nav/PageNav";
 
 const ProfileNav = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const currentLink = useSelector(state => state.profileNavReducer.currentTabs);
+    const currentLink = useSelector(state => state.pageNavReducer.currentTabs);
 
     const handleClick = (e) => {
         if (e.target.id === "open-cookbooks-button") {
@@ -40,14 +40,7 @@ const ProfileNav = () => {
     return (
         <>
             <div className="wrapper profile-nav--flex">
-                <nav className="profile-nav">
-                    <ul className="profile-nav-list" onClick={handleClick}>
-                        {profileLinks.map((item, i) => {
-                            return <ProfileNavItem key={i} text={item.text} id={item.id}
-                                                   className={currentLink === item.currentTab ? linkClass.active : linkClass.disabled}/>
-                        })}
-                    </ul>
-                </nav>
+                <PageNav links={profileLinks} handleClick={handleClick} currentLink={currentLink}/>
                 {currentLink === "cookbooks" ? <button className="button profile-nav-button--yellow" onClick={openNewCookbookModal}>Create New
                     CookBook</button> : (currentLink === "recipes" ?
                     <button className="button profile-nav-button--yellow" onClick={openNewRecipeModal}>Create New Recipe</button> : "")}

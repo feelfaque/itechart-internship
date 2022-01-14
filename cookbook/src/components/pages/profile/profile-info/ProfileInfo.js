@@ -6,7 +6,7 @@ import {updateUserAvatarStart} from "../../../../redux/actions/user-data/userDat
 const ProfileInfo = ({handleFileChange}) => {
     const dispatch = useDispatch();
     const userData = useSelector(state => state.userDataReducer.user);
-    const currentTabs = useSelector((state) => state.profileNavReducer.currentTabs);
+    const currentTabs = useSelector((state) => state.pageNavReducer.currentTabs);
     const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL);
 
 

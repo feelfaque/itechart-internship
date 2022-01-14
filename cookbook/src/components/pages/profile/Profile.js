@@ -13,10 +13,10 @@ import {imageUploadFail, startImageUpload} from "../../../redux/actions/image-st
 
 const Profile = () => {
     const dispatch = useDispatch();
-    const currentTabs = useSelector((state) => state.profileNavReducer.currentTabs);
+    const currentTabs = useSelector((state) => state.pageNavReducer.currentTabs);
     const currentModal = useSelector((state) => state.modalWindowReducer.currentModal);
-    const recipes = useSelector(state => state.dataFetchReducer.recipes.userRecipes && state.dataFetchReducer.recipes.userRecipes);
-    const cookbooks = useSelector(state => state.dataFetchReducer.cookbooks.userCookbooks && state.dataFetchReducer.cookbooks.userCookbooks);
+    const recipes = useSelector(state => state.dataFetchReducer.userRecipes && state.dataFetchReducer.userRecipes);
+    const cookbooks = useSelector(state => state.dataFetchReducer.userCookbooks && state.dataFetchReducer.userCookbooks);
 
     const handleFileChange = (input) => {
         const selectedImage = input.files[0];
@@ -49,6 +49,7 @@ const Profile = () => {
                     </div>
                 </div>
             </Layout>
+
             {currentModal === "new-cookbook-reducer" ? <ModalWindow titleText="CookBook" children={<NewCookbookForm
                 handleFileChange={handleFileChange}/>}/> : (currentModal === "new-recipe" ?
                 <ModalWindow titleText="Recipe" children={<NewRecipeForm handleFileChange={handleFileChange}/>}/> : "")

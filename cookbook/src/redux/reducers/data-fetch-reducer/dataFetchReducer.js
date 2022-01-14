@@ -1,15 +1,11 @@
 import types from "../../actions/data-fetch/dataFetchActionTypes";
 
 const INITIAL_STATE = {
-    recipes: {
         userRecipes: [],
-        allRecipes: []
-    },
-    cookbooks: {
+        allRecipes: [],
         userCookbooks: [],
-        allCookbooks: []
-    },
-    error: null
+        allCookbooks: [],
+        error: null
 }
 
 const dataFetchReducer = (state = INITIAL_STATE, action) => {
@@ -17,9 +13,8 @@ const dataFetchReducer = (state = INITIAL_STATE, action) => {
         case types.FETCH_USER_RECIPES_SUCCESS:
             return {
                 ...state,
-                recipes: {
-                    userRecipes: action.payload
-                }
+                userRecipes: action.payload,
+                error: null
             }
         case types.FETCH_USER_RECIPES_FAIL:
             return {
@@ -29,11 +24,32 @@ const dataFetchReducer = (state = INITIAL_STATE, action) => {
         case types.FETCH_USER_COOKBOOKS_SUCCESS:
             return {
                 ...state,
-                cookbooks: {
-                    userCookbooks: action.payload
-                }
+                userCookbooks: action.payload,
+                error: null
             }
         case types.FETCH_USER_COOKBOOKS_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
+        case types.FETCH_RECIPES_SUCCESS:
+            return {
+                ...state,
+                allRecipes: action.payload,
+                error: null
+            }
+        case types.FETCH_RECIPES_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
+        case types.FETCH_COOKBOOKS_SUCCESS:
+            return {
+                ...state,
+                allCookbooks: action.payload,
+                error: null
+            }
+        case types.FETCH_COOKBOOKS_FAIL:
             return {
                 ...state,
                 error: action.payload

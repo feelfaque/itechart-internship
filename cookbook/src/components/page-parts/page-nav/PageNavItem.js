@@ -1,6 +1,6 @@
-const ProfileNavItem = ({className, id, text}) => {
+const PageNavItem = ({className, id, text}) => {
     return(
-        <li className="profile-nav-item">
+        <li className="page-nav-item">
             <button
                 className={className}
                 id={id}>{text}
@@ -9,4 +9,4 @@ const ProfileNavItem = ({className, id, text}) => {
     );
 }
 
-export default ProfileNavItem;
+export default PageNavItem;

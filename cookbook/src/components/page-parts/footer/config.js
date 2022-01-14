@@ -10,7 +10,7 @@ export const NavInfo = {
     navLinks: [
         {
             text: "Recipes",
-            link: "/recipes"
+            link: "/content"
         },
         {
             text: "Cookbooks",
