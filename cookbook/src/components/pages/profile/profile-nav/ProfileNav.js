@@ -41,10 +41,10 @@ const ProfileNav = () => {
         <>
             <div className="wrapper profile-nav--flex">
                 <PageNav links={profileLinks} handleClick={handleClick} currentLink={currentLink}/>
-                {currentLink === "cookbooks" ? <button className="button profile-nav-button--yellow" onClick={openNewCookbookModal}>Create New
+                {currentLink === "cookbooks" ? <button className="button profile-nav-button--yellow page-nav" onClick={openNewCookbookModal}>Create New
                     CookBook</button> : (currentLink === "recipes" ?
-                    <button className="button profile-nav-button--yellow" onClick={openNewRecipeModal}>Create New Recipe</button> : "")}
-                <button className="button profile-nav-button--yellow" onClick={handleLogOut}>Log out</button>
+                    <button className="button profile-nav-button--yellow page-nav" onClick={openNewRecipeModal}>Create New Recipe</button> : "")}
+                <button className="button profile-nav-button--yellow page-nav" onClick={handleLogOut}>Log out</button>
             </div>
         </>
     );
