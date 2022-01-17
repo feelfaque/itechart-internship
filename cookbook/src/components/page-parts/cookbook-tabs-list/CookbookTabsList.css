@@ -1,5 +1,6 @@
 .cookbook-tabs-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(288px, 1fr) );
-    gap: 24px 24px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
 }

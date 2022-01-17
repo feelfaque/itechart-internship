@@ -6,8 +6,10 @@ import TabStatsLikes from "../tab-stats-item/TabStatsLikes";
 
 
 const RecipeTab = ({recipe}) => {
+    const addLike = (id) => {console.log(id)};
+
     return(
-        <div className=" tab recipe-tab">
+        <div className="tab recipe-tab">
             <img src={recipe.imageUrl} alt="recipe cover" className="recipe-tab-photo"/>
             <div className="recipe-tab--column">
                 <div className="recipe-tab--space-between">
@@ -18,7 +20,7 @@ const RecipeTab = ({recipe}) => {
                 <div className="recipe-tab--space-between">
                     <div className="recipe-tab-stats-list">
                         <TabStatsViews num={recipe.views} />
-                        <TabStatsLikes num={recipe.likes} />
+                        <TabStatsLikes num={recipe.likes} onClick={() => addLike(recipe.recipeId)}/>
                         <TabStatsComments num={recipe.comments} />
                     </div>
                     <FiMoreHorizontal className="icon" />

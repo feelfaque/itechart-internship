@@ -10,6 +10,12 @@ import {
     registerSuccess,
 } from '../../actions/auth/authActions';
 import types from '../../actions/auth/authActionTypes';
+import {
+    fetchCookbooksStart,
+    fetchRecipesStart,
+    fetchUserCookbooksStart,
+    fetchUserRecipesStart
+} from "../../actions/data-fetch/dataFetchActions";
 
 
 const logIn = async (email, password) => {
@@ -39,6 +45,10 @@ export function* logInWithCredentials({payload: {email, password}}) {
         const user = authFirebase.currentUser;
         localStorage.setItem('user', JSON.stringify(user));
         yield put(logInSuccess(user));
+        yield put(fetchUserCookbooksStart(user.uid));
+        yield put(fetchUserRecipesStart(user.uid));
+        yield put(fetchRecipesStart);
+        yield put(fetchCookbooksStart);
     } catch (error) {
         yield put(logInFailure(error));
     }

@@ -17,12 +17,11 @@ const NewCookbookForm = ({handleFileChange}) => {
 
     const recipes = useSelector(state => state.dataFetchReducer.userRecipes);
     const userName = useSelector(state => state.userDataReducer.user.name && state.userDataReducer.user.name);
-    const currentUserId = useSelector(state => state.auth.currentUser.uid && state.auth.currentUser.uid);
     const imageUploadError = useSelector(state => state.imageStorageReducer.error && state.imageStorageReducer.error);
     const message = useSelector(state => state.imageStorageReducer.message && state.imageStorageReducer.message);
     const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL);
     const selectedRecipesIDs = useSelector(state => state.newCookbookReducer.recipes);
-    const selectedRecipes = recipes.filter(recipe => selectedRecipesIDs.indexOf(recipe.recipeId) !== -1);
+    const selectedRecipes = recipes.filter(recipe => selectedRecipesIDs.indexOf(recipe.id) !== -1);
     const cookbook = useSelector(state => state.newCookbookReducer && state.newCookbookReducer);
 
 
@@ -60,7 +59,6 @@ const NewCookbookForm = ({handleFileChange}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(startCookbookUpload(cookbook));
-        dispatch(fetchUserCookbooksStart(currentUserId));
         closeModal();
     }
 
@@ -70,7 +68,7 @@ const NewCookbookForm = ({handleFileChange}) => {
                 <div className="form--column">
                     <label htmlFor="title" className="modal-window-form--label">Cookbook Title<span
                         className="text--yellow">*</span></label>
-                    <input required id="title" name="title" className="form-input" type="text" maxLength="10"/>
+                    <input required id="title" name="title" className="form-input" type="text" maxLength="12"/>
                 </div>
                 <input type="file" name="image" required className="file-input cookbook-file-input"
                        onBlur={!imageUploadError && handleImageUrl}/>
@@ -84,8 +82,8 @@ const NewCookbookForm = ({handleFileChange}) => {
                     <select name="recipes" required id="recipes" className="form-input">
                         <option value=""> </option>
                         {recipes && recipes.map(recipe => {
-                            return <option key={recipe.recipeId} id={recipe.recipeId}
-                                           value={recipe.recipeId}>{recipe.title}</option>
+                            return <option key={recipe.id} id={recipe.id}
+                                           value={recipe.id}>{recipe.title}</option>
                         })}
                     </select>
                 </div>
