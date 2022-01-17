@@ -12,7 +12,7 @@ const CookbookTab = ({cookbook}) => {
                 <h3 className="cookbook-tab-name">{cookbook.title}</h3>
                 <h4 className="tab-text">{cookbook.userName}</h4>
             </div>
-            <p className="tab-text cookbook-tab--margin">{cookbook.description}</p>
+            <p className="tab-text cookbook-tab--margin cookbook-description">{cookbook.description}</p>
             <div className="cookbook-tab-stats-list">
                 <TabStatsLikes num={cookbook.likes}/>
                 <TabStatsComments num={cookbook.comments}/>

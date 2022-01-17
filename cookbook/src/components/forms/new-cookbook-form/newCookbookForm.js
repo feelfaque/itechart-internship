@@ -15,7 +15,7 @@ import {fetchUserCookbooksStart} from "../../../redux/actions/data-fetch/dataFet
 const NewCookbookForm = ({handleFileChange}) => {
     const dispatch = useDispatch();
 
-    const recipes = useSelector(state => state.dataFetchReducer.recipes.userRecipes);
+    const recipes = useSelector(state => state.dataFetchReducer.userRecipes);
     const userName = useSelector(state => state.userDataReducer.user.name && state.userDataReducer.user.name);
     const currentUserId = useSelector(state => state.auth.currentUser.uid && state.auth.currentUser.uid);
     const imageUploadError = useSelector(state => state.imageStorageReducer.error && state.imageStorageReducer.error);
@@ -70,7 +70,7 @@ const NewCookbookForm = ({handleFileChange}) => {
                 <div className="form--column">
                     <label htmlFor="title" className="modal-window-form--label">Cookbook Title<span
                         className="text--yellow">*</span></label>
-                    <input required id="title" name="title" className="form-input" type="text"/>
+                    <input required id="title" name="title" className="form-input" type="text" maxLength="10"/>
                 </div>
                 <input type="file" name="image" required className="file-input cookbook-file-input"
                        onBlur={!imageUploadError && handleImageUrl}/>
