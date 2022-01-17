@@ -10,11 +10,13 @@ export const NavInfo = {
     navLinks: [
         {
             text: "Recipes",
-            link: "/content"
+            link: "/content",
+            id: "recipes-header-link"
         },
         {
             text: "Cookbooks",
-            link: "/cookbooks"
+            link: "/content",
+            id: "cookbooks-header-link"
         },
     ],
     linkClassName: "nav-link nav-link--black"
