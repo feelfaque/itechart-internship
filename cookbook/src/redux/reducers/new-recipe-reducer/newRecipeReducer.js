@@ -10,8 +10,8 @@ const INITIAL_STATE = {
     userName: null,
     userId: localStorage.getItem('user')&& JSON.parse(localStorage.getItem('user')).uid,
     views: 0,
-    comments: 0,
-    likes: 0
+    comments: [],
+    likes: []
 };
 
 const newRecipeReducer = (state = INITIAL_STATE, action) => {

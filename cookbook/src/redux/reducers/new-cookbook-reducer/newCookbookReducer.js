@@ -8,8 +8,8 @@ const INITIAL_STATE = {
     description: null,
     recipes: [],
     views: 0,
-    comments: 0,
-    likes: 0
+    comments: [],
+    likes: []
 }
 
 const newCookbookReducer = (state = INITIAL_STATE, action) => {

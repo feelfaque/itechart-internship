@@ -3,13 +3,20 @@ import {FiMoreHorizontal} from "react-icons/fi";
 import TabStatsViews from "../tab-stats-item/TabStatsViews";
 import TabStatsComments from "../tab-stats-item/TabStatsComments";
 import TabStatsLikes from "../tab-stats-item/TabStatsLikes";
+import {useDispatch} from "react-redux";
+import {openRecipeModal} from "../../../redux/actions/modal-window/modalWindowActions";
 
 
 const RecipeTab = ({recipe}) => {
+    const dispatch = useDispatch();
+
     const addLike = (id) => {console.log(id)};
 
+    const openRecipe = (id) => {
+        dispatch(openRecipeModal(id));
+    }
     return(
-        <div className="tab recipe-tab">
+        <div className="tab recipe-tab" onClick={() => openRecipe(recipe.id)}>
             <img src={recipe.imageUrl} alt="recipe cover" className="recipe-tab-photo"/>
             <div className="recipe-tab--column">
                 <div className="recipe-tab--space-between">
@@ -20,8 +27,8 @@ const RecipeTab = ({recipe}) => {
                 <div className="recipe-tab--space-between">
                     <div className="recipe-tab-stats-list">
                         <TabStatsViews num={recipe.views} />
-                        <TabStatsLikes num={recipe.likes} onClick={() => addLike(recipe.recipeId)}/>
-                        <TabStatsComments num={recipe.comments} />
+                        <TabStatsLikes num={recipe.likes.length} onClick={() => addLike(recipe.id)}/>
+                        <TabStatsComments num={recipe.comments.length} />
                     </div>
                     <FiMoreHorizontal className="icon" />
                 </div>

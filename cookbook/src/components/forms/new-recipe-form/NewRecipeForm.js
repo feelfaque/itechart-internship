@@ -9,7 +9,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {closeModalAction} from "../../../redux/actions/modal-window/modalWindowActions";
 import {resetImageData} from "../../../redux/actions/image-storage/imageStorageActions";
 import {startRecipeUpload} from "../../../redux/actions/data-upload/dataUploadActions";
-import {fetchUserRecipesStart} from "../../../redux/actions/data-fetch/dataFetchActions";
 
 const NewRecipeForm = ({handleFileChange}) => {
     const dispatch = useDispatch();
