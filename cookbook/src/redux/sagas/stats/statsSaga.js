@@ -24,7 +24,7 @@ const incrementRecipeViews = async(id) => {
     })
 }
 
-const incrementCokkbookViews = async(id) => {
+const incrementCookbookViews = async(id) => {
     const ref = doc(db, "cookbooks", id);
     await updateDoc(ref, {
         views: firebase.firestore.FieldValue.increment(1)
@@ -44,7 +44,7 @@ export function* updateRecipeViews ({payload: id}) {
 
 export function* updateCookbookViews ({payload: id}) {
     try {
-        yield incrementCokkbookViews(id);
+        yield incrementCookbookViews(id);
         yield put(updateCookbookViewsSuccess);
         yield put(fetchCookbooksStart);
         yield put(fetchUserCookbooksStart(authFirebase.currentUser.uid));
