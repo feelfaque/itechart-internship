@@ -31,7 +31,7 @@ const ContentPage = () => {
                 </div>
             </Layout>
             {currentModal === "recipe" && <RecipeModal recipe={selectedRecipe}/>}
-            {currentModal === "cookbook" && <CookbookModal cookbook={selectedCookbook} />}
+            {currentModal === "cookbook" && <CookbookModal cookbook={selectedCookbook}/>}
         </>
     );
 }

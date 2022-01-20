@@ -73,8 +73,8 @@ const ProfileEdit = () => {
                     </div>
                     <div className="profile-edit-list" onDoubleClick={openInput}>
                         {userEditData.map((data, i) => inputs === data.text ?
-                            <input key={i} type="text" name={data.text} onChange={handleChange} onBlur={updateData}/> :
-                            <p key={i} className="profile-edit-text" id={data.text}>{userData[data.text]}</p>)}
+                            <input key={i} type={data.text} name={data.text} onChange={handleChange} onBlur={updateData}/> :
+                            <p key={i} className="profile-edit-text" id={data.text}>{data.text === "password"? userData[data.text].replace(/.(?=.)/g, "*"): userData[data.text]}</p>)}
                     </div>
                     {error}
                 </div>

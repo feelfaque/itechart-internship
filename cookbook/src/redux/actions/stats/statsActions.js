@@ -25,3 +25,29 @@ export const updateCookbookViewsSuccess = {
 export const updateCookbookViewsFail = {
     type: types.UPDATE_COOKBOOK_VIEWS_FAIL
 }
+
+export const updateRecipeLikesStart = (id) => ({
+    type: types.UPDATE_RECIPE_LIKES_START,
+    payload: id
+})
+
+export const updateRecipeLikesSuccess = {
+    type: types.UPDATE_RECIPE_LIKES_SUCCESS
+}
+
+export const updateRecipeLikesFail = {
+    type: types.UPDATE_RECIPE_LIKES_FAIL
+}
+
+export const updateCookbookLikesStart = (id) => ({
+    type: types.UPDATE_COOKBOOK_LIKES_START,
+    payload: id
+})
+
+export const updateCookbookLikesSuccess = {
+    type: types.UPDATE_COOKBOOK_LIKES_SUCCESS
+}
+
+export const updateCookbookLikesFail = {
+    type: types.UPDATE_COOKBOOK_LIKES_FAIL
+}

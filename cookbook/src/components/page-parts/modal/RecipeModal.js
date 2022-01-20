@@ -6,7 +6,10 @@ import TabStatsViews from "../tab-stats-item/TabStatsViews";
 import TabStatsLikes from "../tab-stats-item/TabStatsLikes";
 import TabStatsComments from "../tab-stats-item/TabStatsComments";
 import {useEffect} from "react";
-import {updateRecipeViewsStart} from "../../../redux/actions/stats/statsActions";
+import {
+    updateRecipeLikesStart,
+    updateRecipeViewsStart
+} from "../../../redux/actions/stats/statsActions";
 
 const RecipeModal = ({recipe}) => {
     const dispatch = useDispatch();
@@ -15,7 +18,9 @@ const RecipeModal = ({recipe}) => {
         dispatch(closeModalAction);
     }
 
-    const addLike = (id) => {console.log(id)};
+    const addLike = (id) => {
+        dispatch(updateRecipeLikesStart(id));
+    };
 
     const addViews = () => {
         dispatch(updateRecipeViewsStart(recipe.id));

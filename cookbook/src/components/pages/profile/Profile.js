@@ -10,6 +10,8 @@ import ModalWindow from "../../page-parts/modal/ModalWindow";
 import NewRecipeForm from "../../forms/new-recipe-form/NewRecipeForm";
 import NewCookbookForm from "../../forms/new-cookbook-form/newCookbookForm";
 import {imageUploadFail, startImageUpload} from "../../../redux/actions/image-storage/imageStorageActions";
+import RecipeModal from "../../page-parts/modal/RecipeModal";
+import CookbookModal from "../../page-parts/modal/CookbookModal";
 
 const Profile = () => {
     const dispatch = useDispatch();
@@ -17,6 +19,9 @@ const Profile = () => {
     const currentModal = useSelector((state) => state.modalWindowReducer.currentModal);
     const recipes = useSelector(state => state.dataFetchReducer.userRecipes && state.dataFetchReducer.userRecipes);
     const cookbooks = useSelector(state => state.dataFetchReducer.userCookbooks && state.dataFetchReducer.userCookbooks);
+    const selectedId = useSelector(state => state.modalWindowReducer.contentId);
+    const selectedRecipe = (currentModal === "recipe" && recipes.find(item => item.id === selectedId));
+    const selectedCookbook = (currentModal === "cookbook" && cookbooks.find(item => item.id === selectedId));
 
     const handleFileChange = (input) => {
         const selectedImage = input.files[0];
@@ -50,10 +55,13 @@ const Profile = () => {
                 </div>
             </Layout>
 
-            {currentModal === "new-cookbook-reducer" ? <ModalWindow titleText="CookBook" children={<NewCookbookForm
-                handleFileChange={handleFileChange}/>}/> : (currentModal === "new-recipe" ?
-                <ModalWindow titleText="Recipe" children={<NewRecipeForm handleFileChange={handleFileChange}/>}/> : "")
-            } }
+            {currentModal === "new-cookbook-reducer" && <ModalWindow titleText="CookBook" children={<NewCookbookForm
+                handleFileChange={handleFileChange}/>}/>}
+            {currentModal === "new-recipe" &&
+            <ModalWindow titleText="Recipe" children={<NewRecipeForm handleFileChange={handleFileChange}/>}/>}
+            {currentModal === "recipe" && <RecipeModal recipe={selectedRecipe}/>}
+            {currentModal === "cookbook" && <CookbookModal cookbook={selectedCookbook}/>}
+
         </>
     );
 }

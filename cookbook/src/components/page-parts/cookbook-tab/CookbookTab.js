@@ -4,19 +4,20 @@ import TabStatsLikes from "../tab-stats-item/TabStatsLikes";
 import TabStatsComments from "../tab-stats-item/TabStatsComments";
 import {useDispatch} from "react-redux";
 import {openCookbookModal} from "../../../redux/actions/modal-window/modalWindowActions";
+import {updateCookbookLikesStart} from "../../../redux/actions/stats/statsActions";
 
 const CookbookTab = ({cookbook}) => {
     const dispatch = useDispatch();
 
     const addLike = (id) => {
-        console.log(id)
+        dispatch(updateCookbookLikesStart(id));
     }
 
     const openCookbook = (id) => {
         dispatch(openCookbookModal(id));
     }
     return (
-        <div className="tab cookbook-tab" onClick={() => openCookbook(cookbook.id)}>
+        <div className="tab cookbook-tab" onDoubleClick={() => openCookbook(cookbook.id)}>
             <TabStatsViews num={cookbook.views}/>
             <img src={cookbook.imageUrl} alt="cookbook cover" className="cookbook-tab-photo"/>
             <div className="cookbook-tab-title">

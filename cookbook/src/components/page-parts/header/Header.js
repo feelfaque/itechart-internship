@@ -11,7 +11,7 @@ import {openNewCookbookModalAction} from "../../../redux/actions/modal-window/mo
 const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const user = useSelector((state) => state.auth.currentUser);
+    const user = useSelector((state) => state.userDataReducer.user);
 
 
     const handleProfileNav = () => {
@@ -39,7 +39,7 @@ const Header = () => {
                 <div>
                     <button className="header-button button--yellow-border button--low" onClick={openNewCookbookModal}>Create CookBook</button>
                     {user ? <button className="header-button header-button--no-border header-button--icon"
-                                    onClick={handleProfileNav}>{user.email}</button> :
+                                    onClick={handleProfileNav}>{user.name}</button> :
                         <button className="header-button header-button--no-border" onClick={navSignIn}>Sign
                             in</button>}
                 </div>

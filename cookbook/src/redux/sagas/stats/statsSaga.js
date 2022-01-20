@@ -2,8 +2,9 @@ import types from "../../actions/stats/statsActionTypes";
 import {authFirebase, db} from "../../../firebase/config";
 import {doc, updateDoc} from "firebase/firestore";
 import {
+    updateCookbookLikesFail, updateCookbookLikesSuccess,
     updateCookbookViewsFail,
-    updateCookbookViewsSuccess,
+    updateCookbookViewsSuccess, updateRecipeLikesFail, updateRecipeLikesSuccess,
     updateRecipeViewsFail,
     updateRecipeViewsSuccess
 } from "../../actions/stats/statsActions";
@@ -31,6 +32,22 @@ const incrementCookbookViews = async(id) => {
     })
 }
 
+const updateRecipeLikes = async(id) => {
+    const ref = doc(db, "recipes", id);
+
+    await updateDoc(ref, {
+        likes: firebase.firestore.FieldValue.arrayUnion(id),
+    })
+}
+
+const updateCookbookLikes = async(id) => {
+    const ref = doc(db, "cookbooks", id);
+
+    await updateDoc(ref, {
+        likes: firebase.firestore.FieldValue.arrayUnion(id),
+    })
+}
+
 export function* updateRecipeViews ({payload: id}) {
     try {
         yield incrementRecipeViews(id);
@@ -53,6 +70,28 @@ export function* updateCookbookViews ({payload: id}) {
     }
 }
 
+export function* updateRecipeLikesStart ({payload: id}) {
+    try {
+        yield updateRecipeLikes(id);
+        yield put(updateRecipeLikesSuccess);
+        yield put(fetchRecipesStart)
+        yield put(fetchUserRecipesStart(authFirebase.currentUser.uid));
+    }   catch {
+        put(updateRecipeLikesFail);
+    }
+}
+
+export function* updateCookbookLikesStart ({payload: id}) {
+    try {
+        yield updateCookbookLikes(id);
+        yield put(updateCookbookLikesSuccess);
+        yield put(fetchCookbooksStart);
+        yield put(fetchUserCookbooksStart(authFirebase.currentUser.uid));
+    } catch {
+        yield put(updateCookbookLikesFail)
+    }
+}
+
 export function* onUpdateRecipeViewsStart () {
     yield takeLatest(types.UPDATE_RECIPE_VIEWS_START, updateRecipeViews);
 }
@@ -60,9 +99,19 @@ export function* onUpdateRecipeViewsStart () {
 export function* onUpdateCookbookViewsStart () {
     yield takeLatest(types.UPDATE_COOKBOOK_VIEWS_START, updateCookbookViews);
 }
+
+export function* onUpdateRecipeLikesStart () {
+    yield takeLatest(types.UPDATE_RECIPE_LIKES_START, updateRecipeLikesStart);
+}
+
+export function* onUpdateCookbookLikesStart () {
+    yield takeLatest(types.UPDATE_COOKBOOK_LIKES_START, updateCookbookLikesStart);
+}
 export function* statsSaga () {
     yield all([
         call(onUpdateRecipeViewsStart),
-        call(onUpdateCookbookViewsStart)
+        call(onUpdateCookbookViewsStart),
+        call(onUpdateRecipeLikesStart),
+        call(onUpdateCookbookLikesStart)
     ])
 }

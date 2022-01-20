@@ -6,7 +6,7 @@ import TabStatsLikes from "../tab-stats-item/TabStatsLikes";
 import TabStatsComments from "../tab-stats-item/TabStatsComments";
 import {useEffect} from "react";
 import RecipeTabsList from "../recipe-tabs-list/RecipeTabsList";
-import {updateCookbookViewsStart} from "../../../redux/actions/stats/statsActions";
+import {updateCookbookLikesStart, updateCookbookViewsStart} from "../../../redux/actions/stats/statsActions";
 
 const CookbookModal = ({cookbook}) => {
     const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const CookbookModal = ({cookbook}) => {
     }
 
     const addLike = (id) => {
-        console.log(id)
+        dispatch(updateCookbookLikesStart(id));
     };
 
     const addViews = () => {

@@ -43,7 +43,7 @@ const updateAvatarUrl = async (url) => {
     });
 }
 
-export function* updateUserAvatar ({payload: url}) {
+export function* updateUserAvatar({payload: url}) {
     try {
         yield call(updateAvatarUrl, url);
         yield put(updateUserAvatarSuccess);
@@ -54,11 +54,11 @@ export function* updateUserAvatar ({payload: url}) {
     }
 }
 
-export function* onUserAvatarUpdateStart () {
+export function* onUserAvatarUpdateStart() {
     yield takeLatest(types.UPDATE_USER_AVATAR_START, updateUserAvatar);
 }
 
-const updateUserName = async(name) => {
+const updateUserName = async (name) => {
     const currentUser = authFirebase.currentUser.uid;
     const ref = doc(db, "users", currentUser);
 
@@ -67,7 +67,7 @@ const updateUserName = async(name) => {
     });
 }
 
-export function* updateUserNameFunc ({payload: name}) {
+export function* updateUserNameFunc({payload: name}) {
     try {
         yield call(updateUserName, name);
         yield put(updateUserNameSuccess);
@@ -78,15 +78,15 @@ export function* updateUserNameFunc ({payload: name}) {
     }
 }
 
-export function* onUserNameUpdateStart () {
+export function* onUserNameUpdateStart() {
     yield takeLatest(types.UPDATE_USER_NAME_START, updateUserNameFunc);
 }
 
-const updateUserAuthEmail = async(email) => {
+const updateUserAuthEmail = async (email) => {
     return await updateEmail(authFirebase.currentUser, email);
 }
 
-const updateUserFirestoreEmail = async(email) => {
+const updateUserFirestoreEmail = async (email) => {
     const currentUser = authFirebase.currentUser.uid;
     const ref = doc(db, "users", currentUser);
 
@@ -95,7 +95,7 @@ const updateUserFirestoreEmail = async(email) => {
     });
 }
 
-export function* updateUserEmail ({payload: email}) {
+export function* updateUserEmail({payload: email}) {
     try {
         yield call(updateUserAuthEmail, email);
         yield call(updateUserFirestoreEmail, email);
@@ -104,10 +104,11 @@ export function* updateUserEmail ({payload: email}) {
         yield put(fetchUserDataStart(currentUser));
     } catch (error) {
         yield put(updateUserEmailFail(error));
+        alert("You need a recent login to update your email")
     }
 }
 
-export function* onUpdateUserEmailStart () {
+export function* onUpdateUserEmailStart() {
     yield takeLatest(types.UPDATE_USER_EMAIL_START, updateUserEmail);
 }
 
@@ -115,7 +116,7 @@ const updateUserAuthPassword = async (password) => {
     return await updatePassword(authFirebase.currentUser, password);
 }
 
-const updateUserFirestorePassword = async(password) => {
+const updateUserFirestorePassword = async (password) => {
     const currentUser = authFirebase.currentUser.uid;
     const ref = doc(db, "users", currentUser);
 
@@ -124,7 +125,7 @@ const updateUserFirestorePassword = async(password) => {
     });
 }
 
-export function* updateUserPassword ({payload: password}) {
+export function* updateUserPassword({payload: password}) {
     try {
         yield call(updateUserAuthPassword, password);
         yield call(updateUserFirestorePassword, password);
@@ -133,10 +134,11 @@ export function* updateUserPassword ({payload: password}) {
         yield put(fetchUserDataStart(currentUser));
     } catch (error) {
         yield put(updateUserPasswordFail(error));
+        alert("You need a recent login to update your password");
     }
 }
 
-export function* onUpdateUserPasswordStart () {
+export function* onUpdateUserPasswordStart() {
     yield takeLatest(types.UPDATE_USER_PASSWORD_START, updateUserPassword);
 }
 

@@ -5,18 +5,21 @@ import TabStatsComments from "../tab-stats-item/TabStatsComments";
 import TabStatsLikes from "../tab-stats-item/TabStatsLikes";
 import {useDispatch} from "react-redux";
 import {openRecipeModal} from "../../../redux/actions/modal-window/modalWindowActions";
+import {updateRecipeLikesStart} from "../../../redux/actions/stats/statsActions";
 
 
 const RecipeTab = ({recipe}) => {
     const dispatch = useDispatch();
 
-    const addLike = (id) => {console.log(id)};
+    const addLike = (id) => {
+        dispatch(updateRecipeLikesStart(id));
+    };
 
     const openRecipe = (id) => {
         dispatch(openRecipeModal(id));
     }
-    return(
-        <div className="tab recipe-tab" onClick={() => openRecipe(recipe.id)}>
+    return (
+        <div className="tab recipe-tab" onDoubleClick={() => openRecipe(recipe.id)}>
             <img src={recipe.imageUrl} alt="recipe cover" className="recipe-tab-photo"/>
             <div className="recipe-tab--column">
                 <div className="recipe-tab--space-between">
@@ -26,11 +29,11 @@ const RecipeTab = ({recipe}) => {
                 <p className="tab-text recipe-tab--margin">{recipe.description}</p>
                 <div className="recipe-tab--space-between">
                     <div className="recipe-tab-stats-list">
-                        <TabStatsViews num={recipe.views} />
+                        <TabStatsViews num={recipe.views}/>
                         <TabStatsLikes num={recipe.likes.length} onClick={() => addLike(recipe.id)}/>
-                        <TabStatsComments num={recipe.comments.length} />
+                        <TabStatsComments num={recipe.comments.length}/>
                     </div>
-                    <FiMoreHorizontal className="icon" />
+                    <FiMoreHorizontal className="icon"/>
                 </div>
             </div>
         </div>
