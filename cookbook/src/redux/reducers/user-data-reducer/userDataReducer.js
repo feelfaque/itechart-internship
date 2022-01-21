@@ -1,11 +1,11 @@
 import types from "../../actions/user-data/userDataActionTypes";
 
-const CURRENT_USER_INFO = {
+const INITIAL_STATE = {
     user: null,
     error: null
 };
 
-const userDataReducer = (state = CURRENT_USER_INFO, action) => {
+const userDataReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case types.FETCH_USER_DATA_SUCCESS: return {
                 ...state,
@@ -31,6 +31,8 @@ const userDataReducer = (state = CURRENT_USER_INFO, action) => {
             ...state,
             error: action.payload
         }
+        case types.RESET_USER_DATA:
+            return INITIAL_STATE;
         default: return state;
     }
 }

@@ -8,11 +8,12 @@ import {
     updateUserNameStart,
     updateUserPasswordStart
 } from "../../../../redux/actions/user-data/userDataActions";
+import {getCurrentUser} from "../../../../helpers/helpers";
 
 
 const ProfileEdit = () => {
     const dispatch = useDispatch();
-    const userData = useSelector(state => state.userDataReducer.user);
+    const userData = useSelector(getCurrentUser);
     const [inputs, setInputs] = useState();
     const [inputValue, setInputValue] = useState("");
     const [error, setError] = useState("");

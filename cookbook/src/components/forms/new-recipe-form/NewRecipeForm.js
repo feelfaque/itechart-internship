@@ -9,15 +9,22 @@ import {useDispatch, useSelector} from "react-redux";
 import {closeModalAction} from "../../../redux/actions/modal-window/modalWindowActions";
 import {resetImageData} from "../../../redux/actions/image-storage/imageStorageActions";
 import {startRecipeUpload} from "../../../redux/actions/data-upload/dataUploadActions";
+import {
+    getCurrentUserName,
+    getImageUploadError,
+    getImageUploadMessage,
+    getImageUrl,
+    getNewRecipe
+} from "../../../helpers/helpers";
 
 const NewRecipeForm = ({handleFileChange}) => {
     const dispatch = useDispatch();
 
-    const userName = useSelector(state => state.userDataReducer.user.name && state.userDataReducer.user.name);
-    const imageUploadError = useSelector(state => state.imageStorageReducer.error && state.imageStorageReducer.error);
-    const message = useSelector(state => state.imageStorageReducer.message && state.imageStorageReducer.message);
-    const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL);
-    const newRecipe = useSelector(state => state.newRecipeReducer && state.newRecipeReducer);
+    const userName = useSelector(getCurrentUserName);
+    const imageUploadError = useSelector(getImageUploadError);
+    const message = useSelector(getImageUploadMessage);
+    const imageURL = useSelector(getImageUrl);
+    const newRecipe = useSelector(getNewRecipe);
 
     const closeModal = () => {
         dispatch(closeModalAction);

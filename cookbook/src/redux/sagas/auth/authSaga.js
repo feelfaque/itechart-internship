@@ -16,6 +16,7 @@ import {
     fetchUserCookbooksStart,
     fetchUserRecipesStart
 } from "../../actions/data-fetch/dataFetchActions";
+import {resetUserData} from "../../actions/user-data/userDataActions";
 
 
 const logIn = async (email, password) => {
@@ -72,6 +73,7 @@ export function* logOutStart () {
         localStorage.removeItem('user');
         yield logOut;
         yield put(logOutSuccess);
+        yield put(resetUserData);
     } catch (error) {
         console.log(error);
     }

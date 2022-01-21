@@ -1,13 +1,13 @@
 import "./ProfileInfo.css";
 import {useDispatch, useSelector} from "react-redux";
 import {updateUserAvatarStart} from "../../../../redux/actions/user-data/userDataActions";
+import {getCurrentUser, getImageUrl} from "../../../../helpers/helpers";
 
 
-const ProfileInfo = ({handleFileChange}) => {
+const ProfileInfo = ({handleFileChange, currentTabs}) => {
     const dispatch = useDispatch();
-    const userData = useSelector(state => state.userDataReducer.user);
-    const currentTabs = useSelector((state) => state.pageNavReducer.currentTabs);
-    const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL);
+    const userData = useSelector(getCurrentUser);
+    const imageURL = useSelector(getImageUrl);
 
 
     const handleChange = (e) => {

@@ -10,18 +10,25 @@ import {
 } from "../../../redux/actions/new-cookbook/newCookbookActions";
 import RecipeTabsList from "../../page-parts/recipe-tabs-list/RecipeTabsList";
 import {startCookbookUpload} from "../../../redux/actions/data-upload/dataUploadActions";
+import {
+    getCurrentUserName,
+    getImageUploadError,
+    getImageUploadMessage,
+    getImageUrl, getNewCookbook,
+    getUserRecipes
+} from "../../../helpers/helpers";
 
 const NewCookbookForm = ({handleFileChange}) => {
     const dispatch = useDispatch();
 
-    const recipes = useSelector(state => state.dataFetchReducer.userRecipes);
-    const userName = useSelector(state => state.userDataReducer.user.name && state.userDataReducer.user.name);
-    const imageUploadError = useSelector(state => state.imageStorageReducer.error && state.imageStorageReducer.error);
-    const message = useSelector(state => state.imageStorageReducer.message && state.imageStorageReducer.message);
-    const imageURL = useSelector(state => state.imageStorageReducer.imageURL && state.imageStorageReducer.imageURL);
+    const recipes = useSelector(getUserRecipes);
+    const userName = useSelector(getCurrentUserName);
+    const imageUploadError = useSelector(getImageUploadError);
+    const message = useSelector(getImageUploadMessage);
+    const imageURL = useSelector(getImageUrl);
     const selectedRecipesIDs = useSelector(state => state.newCookbookReducer.recipes);
     const selectedRecipes = recipes.filter(recipe => selectedRecipesIDs.indexOf(recipe.id) !== -1);
-    const cookbook = useSelector(state => state.newCookbookReducer && state.newCookbookReducer);
+    const cookbook = useSelector(getNewCookbook);
 
 
     const closeModal = () => {

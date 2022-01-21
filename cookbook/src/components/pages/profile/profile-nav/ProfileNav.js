@@ -9,11 +9,12 @@ import {
     openNewRecipeModalAction
 } from "../../../../redux/actions/modal-window/modalWindowActions";
 import PageNav from "../../../page-parts/page-nav/PageNav";
+import {getCurrentTabs} from "../../../../helpers/helpers";
 
 const ProfileNav = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const currentLink = useSelector(state => state.pageNavReducer.currentTabs);
+    const currentLink = useSelector(getCurrentTabs);
 
     const handleClick = (e) => {
         if (e.target.id === "open-cookbooks-button") {

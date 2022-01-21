@@ -70,3 +70,7 @@ export const updateUserPasswordFail = (error) => ({
 export const updateUserPasswordSuccess = {
     type: types.UPDATE_USER_PASSWORD_SUCCESS
 }
+
+export const resetUserData = {
+    type: types.RESET_USER_DATA
+}

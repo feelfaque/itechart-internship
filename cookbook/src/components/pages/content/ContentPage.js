@@ -7,13 +7,18 @@ import ContentPageNav from "./content-page-nav/ContentPageNav";
 import CookbookTabsList from "../../page-parts/cookbook-tabs-list/CookbookTabsList";
 import RecipeModal from "../../page-parts/modal/RecipeModal";
 import CookbookModal from "../../page-parts/modal/CookbookModal";
+import NewCookbookForm from "../../forms/new-cookbook-form/newCookbookForm";
+import ModalWindow from "../../page-parts/modal/ModalWindow";
+import {
+    getAllCookbooks,
+    getAllRecipes,
+    getCurrentContentPageTabs
+} from "../../../helpers/helpers";
 
-const ContentPage = () => {
-    const currentLink = useSelector(state => state.pageNavReducer.currentContentPageTabs && state.pageNavReducer.currentContentPageTabs);
-    const recipes = useSelector(state => state.dataFetchReducer.allRecipes && state.dataFetchReducer.allRecipes);
-    const cookbooks = useSelector(state => state.dataFetchReducer.allCookbooks && state.dataFetchReducer.allCookbooks);
-    const currentModal = useSelector(state => state.modalWindowReducer.currentModal);
-    const selectedId = useSelector(state => state.modalWindowReducer.contentId);
+const ContentPage = ({handleFileChange, currentModal, selectedId}) => {
+    const currentLink = useSelector(getCurrentContentPageTabs);
+    const recipes = useSelector(getAllRecipes);
+    const cookbooks = useSelector(getAllCookbooks);
     const selectedRecipe = (currentModal === "recipe" && recipes.find(item => item.id === selectedId));
     const selectedCookbook = (currentModal === "cookbook" && cookbooks.find(item => item.id === selectedId));
 
@@ -25,13 +30,15 @@ const ContentPage = () => {
                     <div className="content-page-container">
                         <ContentPageNav/>
                         {currentLink === "recipes" ?
-                            <RecipeTabsList recipes={recipes} /> :
-                            <CookbookTabsList cookbooks={cookbooks}/>}
+                            <RecipeTabsList recipes={recipes && recipes} /> :
+                            <CookbookTabsList cookbooks={cookbooks && cookbooks}/>}
                     </div>
                 </div>
             </Layout>
             {currentModal === "recipe" && <RecipeModal recipe={selectedRecipe}/>}
             {currentModal === "cookbook" && <CookbookModal cookbook={selectedCookbook}/>}
+            {currentModal === "new-cookbook" && <ModalWindow titleText="CookBook" children={<NewCookbookForm
+                handleFileChange={handleFileChange}/>}/>}
         </>
     );
 }
