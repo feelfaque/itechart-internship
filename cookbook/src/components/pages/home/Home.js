@@ -1,6 +1,6 @@
 import Layout from "../../page-parts/layout/Layout";
 import ModalWindow from "../../page-parts/modal/ModalWindow";
-import NewCookbookForm from "../../forms/new-cookbook-form/newCookbookForm";
+import NewCookbookForm from "../../forms/new-cookbook-form/NewCookbookForm";
 
 function Home ({handleFileChange, currentModal}) {
     return(

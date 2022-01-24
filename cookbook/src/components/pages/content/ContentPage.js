@@ -7,7 +7,7 @@ import ContentPageNav from "./content-page-nav/ContentPageNav";
 import CookbookTabsList from "../../page-parts/cookbook-tabs-list/CookbookTabsList";
 import RecipeModal from "../../page-parts/modal/RecipeModal";
 import CookbookModal from "../../page-parts/modal/CookbookModal";
-import NewCookbookForm from "../../forms/new-cookbook-form/newCookbookForm";
+import NewCookbookForm from "../../forms/new-cookbook-form/NewCookbookForm";
 import ModalWindow from "../../page-parts/modal/ModalWindow";
 import {
     getAllCookbooks,

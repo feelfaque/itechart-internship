@@ -17,14 +17,14 @@ import {
     getImageUrl, getNewCookbook,
     getUserRecipes
 } from "../../../helpers/helpers";
+import NewItemForm from "../new-item-form/NewItemForm";
+import RecipesSelect from "./RecipesSelect";
 
 const NewCookbookForm = ({handleFileChange}) => {
     const dispatch = useDispatch();
 
     const recipes = useSelector(getUserRecipes);
     const userName = useSelector(getCurrentUserName);
-    const imageUploadError = useSelector(getImageUploadError);
-    const message = useSelector(getImageUploadMessage);
     const imageURL = useSelector(getImageUrl);
     const selectedRecipesIDs = useSelector(state => state.newCookbookReducer.recipes);
     const selectedRecipes = recipes.filter(recipe => selectedRecipesIDs.indexOf(recipe.id) !== -1);
@@ -69,7 +69,7 @@ const NewCookbookForm = ({handleFileChange}) => {
     }
 
     return (
-        <form className="modal-window-form" onChange={handleChange} onSubmit={handleSubmit}>
+        /*<form className="modal-window-form" onChange={handleChange} onSubmit={handleSubmit}>
             <div className="inputs-list">
                 <div className="form--column">
                     <label htmlFor="title" className="modal-window-form--label">Cookbook Title<span
@@ -101,7 +101,15 @@ const NewCookbookForm = ({handleFileChange}) => {
                 <button type="submit" className="button button--yellow-background button--high">Confirm
                 </button>
             </div>
-        </form>
+        </form>*/
+        <NewItemForm closeModal={closeModal}
+                     handleImageUrl={handleImageUrl}
+                     onSubmit={handleSubmit}
+                     onChange={handleChange}
+                     itemSelect={<RecipesSelect recipes={recipes}/>}
+                     >
+            <RecipeTabsList recipes={selectedRecipes && selectedRecipes}/>
+        </NewItemForm>
     );
 }
 

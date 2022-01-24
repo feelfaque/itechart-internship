@@ -11,18 +11,17 @@ import {resetImageData} from "../../../redux/actions/image-storage/imageStorageA
 import {startRecipeUpload} from "../../../redux/actions/data-upload/dataUploadActions";
 import {
     getCurrentUserName,
-    getImageUploadError,
-    getImageUploadMessage,
     getImageUrl,
     getNewRecipe
 } from "../../../helpers/helpers";
+import Label from "../labels/Label";
+import NewItemForm from "../new-item-form/NewItemForm";
+import IngredientsSelect from "./IngredientsSelect";
 
 const NewRecipeForm = ({handleFileChange}) => {
     const dispatch = useDispatch();
 
     const userName = useSelector(getCurrentUserName);
-    const imageUploadError = useSelector(getImageUploadError);
-    const message = useSelector(getImageUploadMessage);
     const imageURL = useSelector(getImageUrl);
     const newRecipe = useSelector(getNewRecipe);
 
@@ -42,14 +41,18 @@ const NewRecipeForm = ({handleFileChange}) => {
             case "title":
                 dispatch(addRecipeTitle(input.value));
                 dispatch(addRecipeUsername(userName));
-            break;
-            case "image": handleFileChange(e.target);
-            break;
-            case "description": dispatch(addRecipeDescription(input.value));
-            break;
-            case "directions": dispatch(addRecipeDirections(input.value));
-            break;
-            default: return;
+                break;
+            case "image":
+                handleFileChange(e.target);
+                break;
+            case "description":
+                dispatch(addRecipeDescription(input.value));
+                break;
+            case "directions":
+                dispatch(addRecipeDirections(input.value));
+                break;
+            default:
+                return;
         }
     }
 
@@ -63,38 +66,46 @@ const NewRecipeForm = ({handleFileChange}) => {
         closeModal();
     }
 
+
     return (
-        <form className="modal-window-form" onChange={handleChange} onSubmit={handleSubmit}>
+        /*<form className="modal-window-form" onChange={handleChange} onSubmit={handleSubmit}>
             <div className="inputs-list">
-                <div className="form--column">
-                    <label htmlFor="title" className="modal-window-form--label">Recipe Title<span
-                        className="text--yellow">*</span></label>
+                <Label inputName="title" text="Recipe Title" required>
                     <input required id="title" name="title" className="form-input" type="text"/>
-                </div>
-                            <input type="file" name="image" required className="file-input recipe-file-input" onBlur={!imageUploadError && handleImageUrl}/>
+                </Label>
+                <input type="file" name="image" required className="file-input recipe-file-input"
+                       onBlur={!imageUploadError && handleImageUrl}/>
                 {imageUploadError} {message}
-                            <div className="form--column form-input--margin">
-                                <label htmlFor="description" className="modal-window-form--label">Description</label>
-                                <textarea name="description" required id="description" className="form-input"/>
-                            </div>
-                            <div className="form--column  form-input--margin">
-                                <label htmlFor="ingredients" className="modal-window-form--label">Ingredients</label>
-                                <input name="ingredients" id="ingredients" className="form-input" type="text"
-                                       onBlur={handleAdd}/>
-                            </div>
-                    </div>
-                        <IngredientsList/>
-                <div className="form--column form-input--margin">
-                    <label htmlFor="directions" className="modal-window-form--label">Directions</label>
-                    <textarea name="directions" required id="description" className="form-input"/>
-                </div>
-                <div className="buttons-list">
-                    <button className="button button--yellow-border button--high" onClick={closeModal}>Cancel</button>
-                    <button type="submit" className="button button--yellow-background button--high">Confirm
-                    </button>
-                </div>
-        </form>
-);
+                <Label margin text="Description" inputName="description">
+                    <textarea name="description" required id="description" className="form-input"/>
+                </Label>
+                <Label inputName="ingredients" text="Ingredients" margin>
+                    <input name="ingredients" id="ingredients" className="form-input" type="text"
+                           onBlur={handleAdd}/>
+                </Label>
+            </div>
+            <IngredientsList/>
+            <Label inputName="directions" text="Directions" margin>
+                <textarea name="directions" required id="description" className="form-input"/>
+            </Label>
+            <div className="buttons-list">
+                <button className="button button--yellow-border button--high" onClick={closeModal}>Cancel</button>
+                <button type="submit" className="button button--yellow-background button--high">Confirm
+                </button>
+            </div>
+        </form>*/
+        <NewItemForm onChange={handleChange}
+                     onSubmit={handleSubmit}
+                     handleImageUrl={handleImageUrl}
+                     itemSelect={<IngredientsSelect handleAdd={handleAdd}/>}
+                     closeModal={closeModal}
+        >
+            <IngredientsList/>
+            <Label inputName="directions" text="Directions" margin>
+                <textarea name="directions" required id="description" className="form-input"/>
+            </Label>
+        </NewItemForm>
+    );
 }
 
 export default NewRecipeForm;

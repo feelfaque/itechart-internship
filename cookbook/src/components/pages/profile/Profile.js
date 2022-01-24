@@ -8,7 +8,7 @@ import Layout from "../../page-parts/layout/Layout";
 import ProfileEdit from "./profile-edit/ProfileEdit";
 import ModalWindow from "../../page-parts/modal/ModalWindow";
 import NewRecipeForm from "../../forms/new-recipe-form/NewRecipeForm";
-import NewCookbookForm from "../../forms/new-cookbook-form/newCookbookForm";
+import NewCookbookForm from "../../forms/new-cookbook-form/NewCookbookForm";
 import RecipeModal from "../../page-parts/modal/RecipeModal";
 import CookbookModal from "../../page-parts/modal/CookbookModal";
 import {
