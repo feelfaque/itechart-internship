@@ -1,5 +1,5 @@
 import "./Profile.css";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import ProfileInfo from "./profile-info/ProfileInfo";
 import ProfileNav from "./profile-nav/ProfileNav";
 import RecipeTabsList from "../../page-parts/recipe-tabs-list/RecipeTabsList";

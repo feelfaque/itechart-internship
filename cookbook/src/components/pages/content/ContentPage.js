@@ -26,7 +26,7 @@ const ContentPage = ({handleFileChange, currentModal, selectedId}) => {
         <>
             <Layout>
                 <div className="wrapper content-page">
-                    <Filter/>
+                    <Filter currentLink={currentLink} recipes={recipes} cookbooks={cookbooks}/>
                     <div className="content-page-container">
                         <ContentPageNav/>
                         {currentLink === "recipes" ?

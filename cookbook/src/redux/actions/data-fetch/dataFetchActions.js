@@ -56,3 +56,19 @@ export const fetchCookbooksFail = (error) => ({
     type: types.FETCH_COOKBOOKS_FAIL,
     payload: error
 })
+
+export const sortRecipesByViews = {
+    type: types.SORT_RECIPES_BY_VIEWS
+}
+
+export const sortRecipesByLikes = {
+    type: types.SORT_RECIPES_BY_LIKES
+}
+
+export const sortCookbooksByViews = {
+    type: types.SORT_COOKBOOKS_BY_VIEWS
+}
+
+export const sortCookbooksByLikes = {
+    type: types.SORT_COOKBOOKS_BY_LIKES
+}

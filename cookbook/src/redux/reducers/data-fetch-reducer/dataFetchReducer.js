@@ -8,6 +8,12 @@ const INITIAL_STATE = {
         error: null
 }
 
+const sortItems = (arr, value) => {
+    return arr.slice().sort(function(a, b) {
+        return a[value] - b[value];
+    })
+}
+
 const dataFetchReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case types.FETCH_USER_RECIPES_SUCCESS:
@@ -53,6 +59,26 @@ const dataFetchReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 error: action.payload
+            }
+        case types.SORT_RECIPES_BY_VIEWS:
+            return {
+                ...state,
+                allRecipes: sortItems(state.allRecipes,"views")
+            }
+        case types.SORT_RECIPES_BY_LIKES:
+            return {
+                ...state,
+                allRecipes: sortItems(state.allRecipes, "likes")
+            }
+        case types.SORT_COOKBOOKS_BY_VIEWS:
+            return {
+                ...state,
+                allCookbooks: sortItems(state.allCookbooks,"views")
+            }
+        case types.SORT_COOKBOOKS_BY_LIKES:
+            return {
+                ...state,
+                allCookbooks: sortItems(state.allCookbooks, "likes")
             }
         default: return state;
     }

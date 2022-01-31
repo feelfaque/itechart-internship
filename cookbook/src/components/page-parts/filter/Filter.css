@@ -6,4 +6,30 @@
     background-color: #FFFFFF;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
+    color: var(--text-black);
+}
+
+.filter-title {
+    margin-bottom: 32px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.filter-subtitle {
+    margin-bottom: 16px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.filter-select  {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #DADADA;
+    box-sizing: border-box;
+    border-radius: 4px;
 }
