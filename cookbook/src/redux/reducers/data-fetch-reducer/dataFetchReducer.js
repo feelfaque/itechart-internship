@@ -8,12 +8,6 @@ const INITIAL_STATE = {
         error: null
 }
 
-const sortItems = (arr, value) => {
-    return arr.slice().sort(function(a, b) {
-        return a[value] - b[value];
-    })
-}
-
 const dataFetchReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case types.FETCH_USER_RECIPES_SUCCESS:
@@ -63,22 +57,30 @@ const dataFetchReducer = (state = INITIAL_STATE, action) => {
         case types.SORT_RECIPES_BY_VIEWS:
             return {
                 ...state,
-                allRecipes: sortItems(state.allRecipes,"views")
+                allRecipes: state.allRecipes.slice().sort(function(a, b) {
+                    return a.views - b.views;
+                })
             }
         case types.SORT_RECIPES_BY_LIKES:
             return {
                 ...state,
-                allRecipes: sortItems(state.allRecipes, "likes")
+                allRecipes: state.allRecipes.slice().sort(function(a, b) {
+                    return a.likes.length - b.likes.length;
+                })
             }
         case types.SORT_COOKBOOKS_BY_VIEWS:
             return {
                 ...state,
-                allCookbooks: sortItems(state.allCookbooks,"views")
+                allCookbooks: state.allCookbooks.slice().sort(function(a, b) {
+                    return a.views - b.views;
+                })
             }
         case types.SORT_COOKBOOKS_BY_LIKES:
             return {
                 ...state,
-                allCookbooks: sortItems(state.allCookbooks, "likes")
+                allCookbooks: state.allCookbooks.slice().sort(function(a, b) {
+                    return a.likes.length - b.likes.length;
+                })
             }
         default: return state;
     }
