@@ -10,11 +10,13 @@ export const NavInfo = {
     navLinks: [
         {
             text: "Recipes",
-            link: "/recipes"
+            link: "/content",
+            id: "recipes-footer-link"
         },
         {
             text: "Cookbooks",
-            link: "/cookbooks"
+            link: "/content",
+            id: "cookbooks-footer-link"
         },
         {
             text: "About Us",

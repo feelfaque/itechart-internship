@@ -5,6 +5,7 @@ import {userDataSaga} from "./user-data/userDataSaga";
 import {imageStorageSaga} from "./image-storage/imageStorageSaga";
 import {dataUploadSaga} from "./data-upload/dataUploadSaga";
 import {dataFetchSaga} from "./data-fetch/dataFetchSaga";
+import {statsSaga} from "./stats/statsSaga";
 
 export default function* rootSaga() {
     yield all([
@@ -12,7 +13,8 @@ export default function* rootSaga() {
         call(userDataSaga),
         call(imageStorageSaga),
         call(dataUploadSaga),
-        call(dataFetchSaga)
+        call(dataFetchSaga),
+        call(statsSaga)
     ]);
 }
 

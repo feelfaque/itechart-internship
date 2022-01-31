@@ -1,5 +1,4 @@
 .profile-nav--flex {
-    margin-bottom: 40px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -14,24 +13,6 @@
     cursor: pointer;
 }
 
-.profile-nav-list {
-    display: flex;
-}
-
-.profile-nav-item:not(:last-of-type) {
-    margin-right: 32px;
-}
-
-.profile-nav-button--no-border {
-    width: fit-content;
-    height: 26px;
-    background-color: inherit;
-}
-
-.profile-nav-button--no-border:hover {
-    border-bottom: 2px solid var(--primary-yellow);
-}
-
 .profile-nav-button--yellow {
     width: 273px;
     height: 62px;
@@ -41,8 +22,4 @@
 
 .profile-nav-button--yellow:hover {
     color: #FFFFFF;
-}
-
-.profile-nav--flex .active-button {
-    border-bottom: 2px solid var(--primary-yellow);
 }

@@ -7,12 +7,12 @@ import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from 'react-redux';
 import {useDispatch} from "react-redux";
 import {openNewCookbookModalAction} from "../../../redux/actions/modal-window/modalWindowActions";
+import {getCurrentUser} from "../../../helpers/helpers";
 
 const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const user = useSelector((state) => state.auth.currentUser);
-
+    const user = useSelector(getCurrentUser);
 
     const handleProfileNav = () => {
         navigate("/profile");
@@ -36,13 +36,18 @@ const Header = () => {
                 <Nav navClassName={NavInfo.navClassName} navLinks={NavInfo.navLinks}
                      linkClassName={NavInfo.linkClassName}/>
                 <SearchInput/>
-                <div>
-                    <button className="header-button button--yellow-border button--low" onClick={openNewCookbookModal}>Create CookBook</button>
-                    {user ? <button className="header-button header-button--no-border header-button--icon"
-                                    onClick={handleProfileNav}>{user.email}</button> :
-                        <button className="header-button header-button--no-border" onClick={navSignIn}>Sign
-                            in</button>}
-                </div>
+
+                {user ?
+                    <div>
+                        <button className="header-button button--yellow-border button--low"
+                                onClick={openNewCookbookModal}>Create CookBook
+                        </button>
+                        <button className="header-button header-button--no-border header-button--icon"
+                                onClick={handleProfileNav}>{user.name}</button>
+                    </div> :
+                    <button className="header-button header-button--no-border" onClick={navSignIn}>Sign
+                        in</button>}
+
             </div>
         </header>
     );

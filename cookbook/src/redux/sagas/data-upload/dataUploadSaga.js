@@ -1,6 +1,6 @@
 import {all, call, put, takeLatest} from 'redux-saga/effects';
-import {db} from '../../../firebase/config';
-import {collection, addDoc} from "firebase/firestore";
+import {authFirebase, db} from '../../../firebase/config';
+import {collection, doc, setDoc} from "firebase/firestore";
 import types from "../../actions/data-upload/dataUploadActionTypes";
 import {
     cookbookUploadFail,
@@ -8,16 +8,16 @@ import {
     recipeUploadFail,
     recipeUploadSuccess
 } from "../../actions/data-upload/dataUploadActions";
-import cryptoRandomString from "crypto-random-string";
-
-const generateRecipeId = () => {
-    return cryptoRandomString({length: 7});
-}
+import {
+    fetchCookbooksStart, fetchRecipesStart,
+    fetchUserCookbooksStart,
+    fetchUserRecipesStart
+} from "../../actions/data-fetch/dataFetchActions";
 
 const uploadRecipe = async({title, imageUrl, description, ingredients, directions, cookbook, userName, userId, views, comments, likes }) => {
-    const recipeId = generateRecipeId();
+    const ref = doc(collection(db, "recipes"));
 
-    await addDoc(collection(db, "recipes"), {
+    await setDoc(ref, {
         title,
         imageUrl,
         description,
@@ -29,12 +29,14 @@ const uploadRecipe = async({title, imageUrl, description, ingredients, direction
         views,
         comments,
         likes,
-        recipeId: recipeId
-    });
+        id: ref.id
+    })
 }
 
 const uploadCookbook = async({userName, userId, title, imageUrl, description, recipes, views, comments, likes}) => {
-    await addDoc(collection(db, "cookbooks"), {
+    const ref = doc(collection(db, "cookbooks"));
+
+    await setDoc(ref, {
         userName,
         userId,
         title,
@@ -43,14 +45,17 @@ const uploadCookbook = async({userName, userId, title, imageUrl, description, re
         recipes,
         views,
         comments,
-        likes
-    });
+        likes,
+        id: ref.id
+    })
 }
 
 export function* uploadRecipeToFirestore ({payload: recipe}) {
     try {
         yield uploadRecipe(recipe);
         yield put(recipeUploadSuccess);
+        yield put(fetchUserRecipesStart(authFirebase.currentUser.uid));
+        yield put(fetchRecipesStart);
     } catch (error) {
         yield put(recipeUploadFail(error))
     }
@@ -60,6 +65,8 @@ export function* uploadCookbookToFirestore({payload: cookbook}) {
     try {
         yield uploadCookbook(cookbook);
         yield put(cookbookUploadSuccess);
+        yield put(fetchUserCookbooksStart(authFirebase.currentUser.uid));
+        yield put(fetchCookbooksStart);
     } catch (error) {
         yield put(cookbookUploadFail(error));
     }

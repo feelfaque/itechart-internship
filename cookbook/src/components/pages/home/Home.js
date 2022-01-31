@@ -1,15 +1,14 @@
 import Layout from "../../page-parts/layout/Layout";
 import ModalWindow from "../../page-parts/modal/ModalWindow";
-import {useSelector} from "react-redux";
+import NewCookbookForm from "../../forms/new-cookbook-form/NewCookbookForm";
 
-function Home () {
-    const currentModal = useSelector((state) => state.modalWindowReducer.currentModal);
-
+function Home ({handleFileChange, currentModal}) {
     return(
         <>
             <Layout>
             </Layout>
-            {currentModal === "new-cookbook-reducer" ? <ModalWindow titleText="CookBook"/>: ""}
+            {currentModal === "new-cookbook" && <ModalWindow titleText="CookBook" children={<NewCookbookForm
+                handleFileChange={handleFileChange}/>}/>}
         </>
     );
 }

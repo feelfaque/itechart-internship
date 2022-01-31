@@ -2,7 +2,6 @@
     width: 288px;
     height: 487px;
     padding: 24px;
-    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -42,10 +41,12 @@
 
 
 .cookbook-tab-title {
+    height: 24px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    overflow: hidden;
 }
 
 .cookbook-tab-name {
@@ -53,6 +54,11 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
+}
+
+.cookbook-description {
+    height: 60px;
+    overflow: scroll;
 }
 
 

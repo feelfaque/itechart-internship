@@ -1,0 +1,11 @@
+.content-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 104px 0;
+}
+
+.content-page-container {
+    width: 75%;
+}

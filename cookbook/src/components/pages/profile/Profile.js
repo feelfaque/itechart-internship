@@ -1,5 +1,5 @@
 import "./Profile.css";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import ProfileInfo from "./profile-info/ProfileInfo";
 import ProfileNav from "./profile-nav/ProfileNav";
 import RecipeTabsList from "../../page-parts/recipe-tabs-list/RecipeTabsList";
@@ -8,51 +8,44 @@ import Layout from "../../page-parts/layout/Layout";
 import ProfileEdit from "./profile-edit/ProfileEdit";
 import ModalWindow from "../../page-parts/modal/ModalWindow";
 import NewRecipeForm from "../../forms/new-recipe-form/NewRecipeForm";
-import NewCookbookForm from "../../forms/new-cookbook-form/newCookbookForm";
-import {imageUploadFail, startImageUpload} from "../../../redux/actions/image-storage/imageStorageActions";
+import NewCookbookForm from "../../forms/new-cookbook-form/NewCookbookForm";
+import RecipeModal from "../../page-parts/modal/RecipeModal";
+import CookbookModal from "../../page-parts/modal/CookbookModal";
+import {
+    getCurrentTabs,
+    getUserCookbooks,
+    getUserRecipes
+} from "../../../helpers/helpers";
 
-const Profile = () => {
-    const dispatch = useDispatch();
-    const currentTabs = useSelector((state) => state.profileNavReducer.currentTabs);
-    const currentModal = useSelector((state) => state.modalWindowReducer.currentModal);
-    const recipes = useSelector(state => state.dataFetchReducer.recipes.userRecipes && state.dataFetchReducer.recipes.userRecipes);
-    const cookbooks = useSelector(state => state.dataFetchReducer.cookbooks.userCookbooks && state.dataFetchReducer.cookbooks.userCookbooks);
+const Profile = ({handleFileChange, currentModal,  selectedId}) => {
+    const currentTabs = useSelector(getCurrentTabs);
+    const recipes = useSelector(getUserRecipes);
+    const cookbooks = useSelector(getUserCookbooks);
+    const selectedRecipe = (currentModal === "recipe" && recipes.find(item => item.id === selectedId));
+    const selectedCookbook = (currentModal === "cookbook" && cookbooks.find(item => item.id === selectedId));
 
-    const handleFileChange = (input) => {
-        const selectedImage = input.files[0];
-        if (!selectedImage) {
-            dispatch(imageUploadFail("Image's not selected!"));
-            return;
-        }
-        if (!selectedImage.type.includes('image')) {
-            dispatch(imageUploadFail("Selected file must be an image"));
-            return;
-        }
-        if (selectedImage.size > 1000000) {
-            dispatch(imageUploadFail("Selected image is too big"));
-            return;
-        }
-        dispatch(imageUploadFail(null));
-        dispatch(startImageUpload(selectedImage));
-    }
 
     return (
         <>
             <Layout>
                 <div className="profile">
-                    <ProfileInfo handleFileChange={handleFileChange}/>
+                    <ProfileInfo handleFileChange={handleFileChange} currentTabs={currentTabs}/>
                     <ProfileNav/>
                     <div className="wrapper">
                         {currentTabs === "cookbooks" ?
-                            <CookbookTabsList cookbooks={cookbooks}/> : (currentTabs === "recipes" ?
-                                <RecipeTabsList recipes={recipes}/> : <ProfileEdit/>)}
+                            <CookbookTabsList cookbooks={cookbooks && cookbooks}/> : (currentTabs === "recipes" ?
+                                <RecipeTabsList recipes={recipes && recipes}/> : <ProfileEdit/>)}
                     </div>
                 </div>
             </Layout>
-            {currentModal === "new-cookbook-reducer" ? <ModalWindow titleText="CookBook" children={<NewCookbookForm
-                handleFileChange={handleFileChange}/>}/> : (currentModal === "new-recipe" ?
-                <ModalWindow titleText="Recipe" children={<NewRecipeForm handleFileChange={handleFileChange}/>}/> : "")
-            } }
+
+            {currentModal === "new-cookbook" && <ModalWindow titleText="CookBook" children={<NewCookbookForm
+                handleFileChange={handleFileChange}/>}/>}
+            {currentModal === "new-recipe" &&
+            <ModalWindow titleText="Recipe" children={<NewRecipeForm handleFileChange={handleFileChange}/>}/>}
+            {currentModal === "recipe" && <RecipeModal recipe={selectedRecipe}/>}
+            {currentModal === "cookbook" && <CookbookModal cookbook={selectedCookbook}/>}
+
         </>
     );
 }

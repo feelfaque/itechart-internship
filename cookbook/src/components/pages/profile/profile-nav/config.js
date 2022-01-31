@@ -16,8 +16,3 @@ export const profileLinks = [
     }
 ]
 
-export const linkClass = {
-    active: "button profile-nav-button--no-border active-button",
-    disabled: "button profile-nav-button--no-border"
-}
-

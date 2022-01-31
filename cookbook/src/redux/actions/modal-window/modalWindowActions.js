@@ -11,3 +11,13 @@ export const openNewRecipeModalAction = {
 export const closeModalAction = {
     type: types.CLOSE_MODAL
 }
+
+export const openCookbookModal = (id) => ({
+    type: types.OPEN_COOKBOOK_MODAL,
+    payload: id
+})
+
+export const openRecipeModal = (id) => ({
+    type: types.OPEN_RECIPE_MODAL,
+    payload: id
+})
