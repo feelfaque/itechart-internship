@@ -10,13 +10,7 @@ import {
     registerSuccess,
 } from '../../actions/auth/authActions';
 import types from '../../actions/auth/authActionTypes';
-import {
-    fetchCookbooksStart,
-    fetchRecipesStart,
-    fetchUserCookbooksStart,
-    fetchUserRecipesStart
-} from "../../actions/data-fetch/dataFetchActions";
-import {resetUserData} from "../../actions/user-data/userDataActions";
+import {fetchUserCookbooksStart, fetchUserRecipesStart} from "../../actions/data-fetch/dataFetchActions";
 
 
 const logIn = async (email, password) => {
@@ -25,6 +19,7 @@ const logIn = async (email, password) => {
 
 const register = async (email, password) => {
     await createUserWithEmailAndPassword(authFirebase, email, password);
+
     const currentUser = authFirebase.currentUser;
     await setDoc(doc(db, 'users', currentUser.uid), {
         id: currentUser.uid,
@@ -46,10 +41,8 @@ export function* logInWithCredentials({payload: {email, password}}) {
         const user = authFirebase.currentUser;
         localStorage.setItem('user', JSON.stringify(user));
         yield put(logInSuccess(user));
-        yield put(fetchUserCookbooksStart(user.uid));
-        yield put(fetchUserRecipesStart(user.uid));
-        yield put(fetchRecipesStart);
-        yield put(fetchCookbooksStart);
+        yield put(fetchUserCookbooksStart(authFirebase.currentUser.uid));
+        yield put (fetchUserRecipesStart(authFirebase.currentUser.uid));
     } catch (error) {
         yield put(logInFailure(error));
     }
@@ -73,7 +66,6 @@ export function* logOutStart () {
         localStorage.removeItem('user');
         yield logOut;
         yield put(logOutSuccess);
-        yield put(resetUserData);
     } catch (error) {
         console.log(error);
     }

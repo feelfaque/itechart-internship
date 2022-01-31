@@ -36,7 +36,7 @@ const updateRecipeLikes = async(id) => {
     const ref = doc(db, "recipes", id);
 
     await updateDoc(ref, {
-        likes: firebase.firestore.FieldValue.arrayUnion(id),
+        likes: firebase.firestore.FieldValue.arrayUnion(authFirebase.currentUser.uid),
     })
 }
 
@@ -44,7 +44,7 @@ const updateCookbookLikes = async(id) => {
     const ref = doc(db, "cookbooks", id);
 
     await updateDoc(ref, {
-        likes: firebase.firestore.FieldValue.arrayUnion(id),
+        likes: firebase.firestore.FieldValue.arrayUnion(authFirebase.currentUser.uid),
     })
 }
 
